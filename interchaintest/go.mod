@@ -49,7 +49,7 @@ require (
 	cosmossdk.io/api v0.7.6 // indirect
 	cosmossdk.io/collections v0.4.0 // indirect
 	cosmossdk.io/core v0.12.0 // indirect
-	cosmossdk.io/depinject v1.1.0 // indirect
+	cosmossdk.io/ect depinjv1.1.0 // indirect
 	cosmossdk.io/errors v1.0.1 // indirect
 	cosmossdk.io/log v1.5.0 // indirect
 	cosmossdk.io/store v1.1.1 // indirect
