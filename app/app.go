@@ -166,6 +166,9 @@ import (
 	nameservice "github.com/rollchains/rollchain/x/nameservice"
 	nameservicekeeper "github.com/rollchains/rollchain/x/nameservice/keeper"
 	nameservicetypes "github.com/rollchains/rollchain/x/nameservice/types"
+	auction "github.com/rollchains/rollchain/x/auction"
+	auctionkeeper "github.com/rollchains/rollchain/x/auction/keeper"
+	auctiontypes "github.com/rollchains/rollchain/x/auction/types"
 )
 
 const (
@@ -301,6 +304,7 @@ type ChainApp struct {
 	ScopedIBCFeeKeeper        capabilitykeeper.ScopedKeeper
 	ScopedWasmKeeper          capabilitykeeper.ScopedKeeper
 	NameserviceKeeper nameservicekeeper.Keeper
+	AuctionKeeper auctionkeeper.Keeper
 
 	// the module manager
 	ModuleManager      *module.Manager
@@ -412,6 +416,7 @@ func NewChainApp(
 		feemarkettypes.StoreKey,
 		erc20types.StoreKey,
 		nameservicetypes.StoreKey,
+		auctiontypes.StoreKey,
 	)
 
 	tkeys := storetypes.NewTransientStoreKeys(
@@ -660,6 +665,14 @@ func NewChainApp(
 	)
 	// If evidence needs to be handled for the app, set routes in router here and seal
 	app.EvidenceKeeper = *evidenceKeeper
+
+	// Create the auction Keeper
+	app.AuctionKeeper = auctionkeeper.NewKeeper(
+		appCodec,
+		runtime.NewKVStoreService(keys[auctiontypes.StoreKey]),
+		logger,
+		authtypes.NewModuleAddress(govtypes.ModuleName).String(),
+	)
 
 	// Create the nameservice Keeper
 	app.NameserviceKeeper = nameservicekeeper.NewKeeper(
@@ -976,6 +989,8 @@ func NewChainApp(
 		erc20.NewAppModule(app.Erc20Keeper, app.AccountKeeper, app.GetSubspace(erc20types.ModuleName)),
 		nameservice.NewAppModule(appCodec, app.NameserviceKeeper),
 
+		auction.NewAppModule(appCodec, app.AuctionKeeper),
+
 	)
 
 	// BasicModuleManager defines the module BasicManager is in charge of setting up basic,
@@ -1023,6 +1038,7 @@ func NewChainApp(
 		wasmlctypes.ModuleName,
 		ratelimittypes.ModuleName,
 		nameservicetypes.ModuleName,
+		auctiontypes.ModuleName,
 	)
 
 	app.ModuleManager.SetOrderEndBlockers(
@@ -1045,6 +1061,7 @@ func NewChainApp(
 		wasmlctypes.ModuleName,
 		ratelimittypes.ModuleName,
 		nameservicetypes.ModuleName,
+		auctiontypes.ModuleName,
 	)
 
 	// NOTE: The genutils module must occur after staking so that pools are
@@ -1094,6 +1111,7 @@ func NewChainApp(
 		wasmlctypes.ModuleName,
 		ratelimittypes.ModuleName,
 		nameservicetypes.ModuleName,
+		auctiontypes.ModuleName,
 	}
 	app.ModuleManager.SetOrderInitGenesis(genesisModuleOrder...)
 	app.ModuleManager.SetOrderExportGenesis(genesisModuleOrder...)
@@ -1538,6 +1556,7 @@ func initParamsKeeper(appCodec codec.BinaryCodec, legacyAmino *codec.LegacyAmino
 	paramsKeeper.Subspace(feemarkettypes.ModuleName)
 	paramsKeeper.Subspace(erc20types.ModuleName)
 	paramsKeeper.Subspace(nameservicetypes.ModuleName)
+	paramsKeeper.Subspace(auctiontypes.ModuleName)
 
 	return paramsKeeper
 }

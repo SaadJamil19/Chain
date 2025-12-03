@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package auction.v1;
+
+import "gogoproto/gogo.proto";
+import "cosmos_proto/cosmos.proto";
+
+option go_package = "github.com/rollchains/rollchain/x/auction/types";
+
+// A single bid in an auction
+message Bid {
+  string bidder = 1 [(cosmos_proto.scalar) = "cosmos.AddressString"];
+  string amount = 2; // use string for sdk.Int style amounts
+}
+
+// Status of the auction
+enum AuctionStatus {
+  AUCTION_STATUS_UNSPECIFIED = 0;
+  AUCTION_STATUS_OPEN = 1;
+  AUCTION_STATUS_CLOSED = 2;
+}
+
+// Main auction object we store in state
+message Auction {
+  string id = 1; // auction ID as string (e.g. "btc-future-1")
+  string creator = 2 [(cosmos_proto.scalar) = "cosmos.AddressString"];
+
+  string start_time = 3; // RFC3339 string
+  string end_time   = 4;
+
+  string initial_price = 5; // string sdk.Int
+  string highest_bid   = 6; // string sdk.Int
+  string highest_bidder = 7 [(cosmos_proto.scalar) = "cosmos.AddressString"];
+
+  AuctionStatus status = 8;
+
+  repeated Bid bids = 9;
+}

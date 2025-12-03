@@ -1,0 +1,72 @@
+syntax = "proto3";
+package auction.v1;
+
+import "cosmos/msg/v1/msg.proto";
+import "auction/v1/genesis.proto";
+import "gogoproto/gogo.proto";
+import "cosmos_proto/cosmos.proto";
+
+option go_package = "github.com/rollchains/rollchain/x/auction/types";
+
+// Msg defines the Msg service.
+service Msg {
+  option (cosmos.msg.v1.service) = true;
+
+  // UpdateParams defines a governance operation for updating the parameters.
+  //
+  // Since: cosmos-sdk 0.47
+  rpc UpdateParams(MsgUpdateParams) returns (MsgUpdateParamsResponse);
+
+  // StartAuction starts a new auction.
+  rpc StartAuction(MsgStartAuction) returns (MsgStartAuctionResponse);
+
+  // PlaceBid places a bid on an auction.
+  rpc PlaceBid(MsgPlaceBid) returns (MsgPlaceBidResponse);
+}
+
+// MsgUpdateParams is the Msg/UpdateParams request type.
+//
+// Since: cosmos-sdk 0.47
+message MsgUpdateParams {
+  option (cosmos.msg.v1.signer) = "authority";
+
+  // authority is the address of the governance account.
+  string authority = 1 [(cosmos_proto.scalar) = "cosmos.AddressString"];
+
+  // params defines the parameters to update.
+  //
+  // NOTE: All parameters must be supplied.
+  Params params = 2 [(gogoproto.nullable) = false];
+}
+
+// MsgStartAuction defines starting a new auction.
+message MsgStartAuction {
+  option (cosmos.msg.v1.signer) = "creator";
+
+  string creator = 1 [(cosmos_proto.scalar) = "cosmos.AddressString"];
+
+  string auction_id = 2;       // unique ID for auction
+  string start_time = 3;       // RFC3339
+  string end_time   = 4;       // RFC3339
+  string initial_price = 5;    // string sdk.Int
+}
+
+message MsgStartAuctionResponse {}
+
+// MsgPlaceBid defines placing a bid in an auction.
+message MsgPlaceBid {
+  option (cosmos.msg.v1.signer) = "bidder";
+
+  string bidder = 1 [(cosmos_proto.scalar) = "cosmos.AddressString"];
+
+  string auction_id = 2;
+  string bid_amount = 3;       // string sdk.Int
+}
+
+message MsgPlaceBidResponse {}
+
+// MsgUpdateParamsResponse defines the response structure for executing a
+// MsgUpdateParams message.
+//
+// Since: cosmos-sdk 0.47
+message MsgUpdateParamsResponse {}

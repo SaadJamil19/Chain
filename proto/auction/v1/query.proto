@@ -1,0 +1,86 @@
+syntax = "proto3";
+package auction.v1;
+
+import "google/api/annotations.proto";
+import "auction/v1/genesis.proto";
+import "auction/v1/auction.proto";
+
+option go_package = "github.com/rollchains/rollchain/x/auction/types";
+
+// Query provides defines the gRPC querier service.
+service Query {
+  // Params queries all parameters of the module.
+  rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
+    option (google.api.http).get = "/auction/v1/params";
+  }
+
+    // Auction returns a single auction by id.
+  rpc Auction(QueryAuctionRequest) returns (QueryAuctionResponse) {
+    option (google.api.http).get = "/auction/v1/auction/{auction_id}";
+  }
+
+  // Auctions lists all auctions (you can add pagination later).
+  rpc Auctions(QueryAuctionsRequest) returns (QueryAuctionsResponse) {
+    option (google.api.http).get = "/auction/v1/auctions";
+  }
+
+  // AuctionStatus returns OPEN/CLOSED status of an auction.
+  rpc AuctionStatus(QueryAuctionStatusRequest) returns (QueryAuctionStatusResponse) {
+    option (google.api.http).get = "/auction/v1/auction/{auction_id}/status";
+  }
+
+}
+
+// QueryParamsRequest is the request type for the Query/Params RPC method.
+message QueryParamsRequest {}
+
+// QueryParamsResponse is the response type for the Query/Params RPC method.
+message QueryParamsResponse {
+  // params defines the parameters of the module.
+  Params params = 1;
+}
+
+// QueryAuctionRequest is used to request details of a specific auction
+// by its unique auction ID.
+message QueryAuctionRequest {
+  // auction_id is the unique identifier for the auction.
+  // It is used to fetch a specific auction's details.
+  string auction_id = 1; // The unique identifier of the auction to query
+}
+
+// QueryAuctionResponse contains the details of a specific auction
+// as returned by a query for the auction by its ID.
+message QueryAuctionResponse {
+  // auction contains the full details of the auction requested.
+  Auction auction = 1; // The auction details (start time, bids, highest bidder, etc.)
+}
+
+// QueryAuctionsRequest is used to request a list of all auctions.
+// Currently, it doesn't require any arguments, but it can be expanded
+// to allow for filtering, pagination, or sorting if needed.
+message QueryAuctionsRequest {
+  // No fields are currently required, but this can be extended later.
+}
+
+// QueryAuctionsResponse contains a list of all auctions available on the network.
+message QueryAuctionsResponse {
+  // auctions is a repeated list of Auction objects.
+  // This list contains all auctions that are available.
+  repeated Auction auctions = 1; // A list of auctions available
+}
+
+// QueryAuctionStatusRequest is used to request the status (OPEN or CLOSED)
+// of a specific auction by its auction ID.
+message QueryAuctionStatusRequest {
+  // auction_id is the unique identifier for the auction.
+  // Used to fetch the current status of that auction.
+  string auction_id = 1; // The unique identifier of the auction to query
+}
+
+// QueryAuctionStatusResponse contains the status of a specific auction.
+// The status can be either "OPEN" or "CLOSED", indicating the auction's state.
+message QueryAuctionStatusResponse {
+  // status represents the current state of the auction.
+  // Possible values are "OPEN" and "CLOSED".
+  string status = 1; // Auction status (OPEN or CLOSED)
+}
