@@ -2,6 +2,7 @@
 package oraclev1
 
 import (
+	_ "cosmossdk.io/api/amino"
 	_ "cosmossdk.io/api/cosmos/msg/v1"
 	fmt "fmt"
 	_ "github.com/cosmos/cosmos-proto"
@@ -1774,6 +1775,3252 @@ func (x *fastReflection_MsgPostPriceResponse) ProtoMethods() *protoiface.Methods
 	}
 }
 
+var _ protoreflect.List = (*_MsgRelayProviderPrices_3_list)(nil)
+
+type _MsgRelayProviderPrices_3_list struct {
+	list *[]string
+}
+
+func (x *_MsgRelayProviderPrices_3_list) Len() int {
+	if x.list == nil {
+		return 0
+	}
+	return len(*x.list)
+}
+
+func (x *_MsgRelayProviderPrices_3_list) Get(i int) protoreflect.Value {
+	return protoreflect.ValueOfString((*x.list)[i])
+}
+
+func (x *_MsgRelayProviderPrices_3_list) Set(i int, value protoreflect.Value) {
+	valueUnwrapped := value.String()
+	concreteValue := valueUnwrapped
+	(*x.list)[i] = concreteValue
+}
+
+func (x *_MsgRelayProviderPrices_3_list) Append(value protoreflect.Value) {
+	valueUnwrapped := value.String()
+	concreteValue := valueUnwrapped
+	*x.list = append(*x.list, concreteValue)
+}
+
+func (x *_MsgRelayProviderPrices_3_list) AppendMutable() protoreflect.Value {
+	panic(fmt.Errorf("AppendMutable can not be called on message MsgRelayProviderPrices at list field Symbols as it is not of Message kind"))
+}
+
+func (x *_MsgRelayProviderPrices_3_list) Truncate(n int) {
+	*x.list = (*x.list)[:n]
+}
+
+func (x *_MsgRelayProviderPrices_3_list) NewElement() protoreflect.Value {
+	v := ""
+	return protoreflect.ValueOfString(v)
+}
+
+func (x *_MsgRelayProviderPrices_3_list) IsValid() bool {
+	return x.list != nil
+}
+
+var _ protoreflect.List = (*_MsgRelayProviderPrices_4_list)(nil)
+
+type _MsgRelayProviderPrices_4_list struct {
+	list *[]string
+}
+
+func (x *_MsgRelayProviderPrices_4_list) Len() int {
+	if x.list == nil {
+		return 0
+	}
+	return len(*x.list)
+}
+
+func (x *_MsgRelayProviderPrices_4_list) Get(i int) protoreflect.Value {
+	return protoreflect.ValueOfString((*x.list)[i])
+}
+
+func (x *_MsgRelayProviderPrices_4_list) Set(i int, value protoreflect.Value) {
+	valueUnwrapped := value.String()
+	concreteValue := valueUnwrapped
+	(*x.list)[i] = concreteValue
+}
+
+func (x *_MsgRelayProviderPrices_4_list) Append(value protoreflect.Value) {
+	valueUnwrapped := value.String()
+	concreteValue := valueUnwrapped
+	*x.list = append(*x.list, concreteValue)
+}
+
+func (x *_MsgRelayProviderPrices_4_list) AppendMutable() protoreflect.Value {
+	panic(fmt.Errorf("AppendMutable can not be called on message MsgRelayProviderPrices at list field Prices as it is not of Message kind"))
+}
+
+func (x *_MsgRelayProviderPrices_4_list) Truncate(n int) {
+	*x.list = (*x.list)[:n]
+}
+
+func (x *_MsgRelayProviderPrices_4_list) NewElement() protoreflect.Value {
+	v := ""
+	return protoreflect.ValueOfString(v)
+}
+
+func (x *_MsgRelayProviderPrices_4_list) IsValid() bool {
+	return x.list != nil
+}
+
+var (
+	md_MsgRelayProviderPrices           protoreflect.MessageDescriptor
+	fd_MsgRelayProviderPrices_sender    protoreflect.FieldDescriptor
+	fd_MsgRelayProviderPrices_provider  protoreflect.FieldDescriptor
+	fd_MsgRelayProviderPrices_symbols   protoreflect.FieldDescriptor
+	fd_MsgRelayProviderPrices_prices    protoreflect.FieldDescriptor
+	fd_MsgRelayProviderPrices_timestamp protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_oracle_v1_tx_proto_init()
+	md_MsgRelayProviderPrices = File_oracle_v1_tx_proto.Messages().ByName("MsgRelayProviderPrices")
+	fd_MsgRelayProviderPrices_sender = md_MsgRelayProviderPrices.Fields().ByName("sender")
+	fd_MsgRelayProviderPrices_provider = md_MsgRelayProviderPrices.Fields().ByName("provider")
+	fd_MsgRelayProviderPrices_symbols = md_MsgRelayProviderPrices.Fields().ByName("symbols")
+	fd_MsgRelayProviderPrices_prices = md_MsgRelayProviderPrices.Fields().ByName("prices")
+	fd_MsgRelayProviderPrices_timestamp = md_MsgRelayProviderPrices.Fields().ByName("timestamp")
+}
+
+var _ protoreflect.Message = (*fastReflection_MsgRelayProviderPrices)(nil)
+
+type fastReflection_MsgRelayProviderPrices MsgRelayProviderPrices
+
+func (x *MsgRelayProviderPrices) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_MsgRelayProviderPrices)(x)
+}
+
+func (x *MsgRelayProviderPrices) slowProtoReflect() protoreflect.Message {
+	mi := &file_oracle_v1_tx_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_MsgRelayProviderPrices_messageType fastReflection_MsgRelayProviderPrices_messageType
+var _ protoreflect.MessageType = fastReflection_MsgRelayProviderPrices_messageType{}
+
+type fastReflection_MsgRelayProviderPrices_messageType struct{}
+
+func (x fastReflection_MsgRelayProviderPrices_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_MsgRelayProviderPrices)(nil)
+}
+func (x fastReflection_MsgRelayProviderPrices_messageType) New() protoreflect.Message {
+	return new(fastReflection_MsgRelayProviderPrices)
+}
+func (x fastReflection_MsgRelayProviderPrices_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgRelayProviderPrices
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_MsgRelayProviderPrices) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgRelayProviderPrices
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_MsgRelayProviderPrices) Type() protoreflect.MessageType {
+	return _fastReflection_MsgRelayProviderPrices_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_MsgRelayProviderPrices) New() protoreflect.Message {
+	return new(fastReflection_MsgRelayProviderPrices)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_MsgRelayProviderPrices) Interface() protoreflect.ProtoMessage {
+	return (*MsgRelayProviderPrices)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_MsgRelayProviderPrices) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.Sender != "" {
+		value := protoreflect.ValueOfString(x.Sender)
+		if !f(fd_MsgRelayProviderPrices_sender, value) {
+			return
+		}
+	}
+	if x.Provider != "" {
+		value := protoreflect.ValueOfString(x.Provider)
+		if !f(fd_MsgRelayProviderPrices_provider, value) {
+			return
+		}
+	}
+	if len(x.Symbols) != 0 {
+		value := protoreflect.ValueOfList(&_MsgRelayProviderPrices_3_list{list: &x.Symbols})
+		if !f(fd_MsgRelayProviderPrices_symbols, value) {
+			return
+		}
+	}
+	if len(x.Prices) != 0 {
+		value := protoreflect.ValueOfList(&_MsgRelayProviderPrices_4_list{list: &x.Prices})
+		if !f(fd_MsgRelayProviderPrices_prices, value) {
+			return
+		}
+	}
+	if x.Timestamp != int64(0) {
+		value := protoreflect.ValueOfInt64(x.Timestamp)
+		if !f(fd_MsgRelayProviderPrices_timestamp, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_MsgRelayProviderPrices) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "oracle.v1.MsgRelayProviderPrices.sender":
+		return x.Sender != ""
+	case "oracle.v1.MsgRelayProviderPrices.provider":
+		return x.Provider != ""
+	case "oracle.v1.MsgRelayProviderPrices.symbols":
+		return len(x.Symbols) != 0
+	case "oracle.v1.MsgRelayProviderPrices.prices":
+		return len(x.Prices) != 0
+	case "oracle.v1.MsgRelayProviderPrices.timestamp":
+		return x.Timestamp != int64(0)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgRelayProviderPrices"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgRelayProviderPrices does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgRelayProviderPrices) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "oracle.v1.MsgRelayProviderPrices.sender":
+		x.Sender = ""
+	case "oracle.v1.MsgRelayProviderPrices.provider":
+		x.Provider = ""
+	case "oracle.v1.MsgRelayProviderPrices.symbols":
+		x.Symbols = nil
+	case "oracle.v1.MsgRelayProviderPrices.prices":
+		x.Prices = nil
+	case "oracle.v1.MsgRelayProviderPrices.timestamp":
+		x.Timestamp = int64(0)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgRelayProviderPrices"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgRelayProviderPrices does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_MsgRelayProviderPrices) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "oracle.v1.MsgRelayProviderPrices.sender":
+		value := x.Sender
+		return protoreflect.ValueOfString(value)
+	case "oracle.v1.MsgRelayProviderPrices.provider":
+		value := x.Provider
+		return protoreflect.ValueOfString(value)
+	case "oracle.v1.MsgRelayProviderPrices.symbols":
+		if len(x.Symbols) == 0 {
+			return protoreflect.ValueOfList(&_MsgRelayProviderPrices_3_list{})
+		}
+		listValue := &_MsgRelayProviderPrices_3_list{list: &x.Symbols}
+		return protoreflect.ValueOfList(listValue)
+	case "oracle.v1.MsgRelayProviderPrices.prices":
+		if len(x.Prices) == 0 {
+			return protoreflect.ValueOfList(&_MsgRelayProviderPrices_4_list{})
+		}
+		listValue := &_MsgRelayProviderPrices_4_list{list: &x.Prices}
+		return protoreflect.ValueOfList(listValue)
+	case "oracle.v1.MsgRelayProviderPrices.timestamp":
+		value := x.Timestamp
+		return protoreflect.ValueOfInt64(value)
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgRelayProviderPrices"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgRelayProviderPrices does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgRelayProviderPrices) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "oracle.v1.MsgRelayProviderPrices.sender":
+		x.Sender = value.Interface().(string)
+	case "oracle.v1.MsgRelayProviderPrices.provider":
+		x.Provider = value.Interface().(string)
+	case "oracle.v1.MsgRelayProviderPrices.symbols":
+		lv := value.List()
+		clv := lv.(*_MsgRelayProviderPrices_3_list)
+		x.Symbols = *clv.list
+	case "oracle.v1.MsgRelayProviderPrices.prices":
+		lv := value.List()
+		clv := lv.(*_MsgRelayProviderPrices_4_list)
+		x.Prices = *clv.list
+	case "oracle.v1.MsgRelayProviderPrices.timestamp":
+		x.Timestamp = value.Int()
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgRelayProviderPrices"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgRelayProviderPrices does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgRelayProviderPrices) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "oracle.v1.MsgRelayProviderPrices.symbols":
+		if x.Symbols == nil {
+			x.Symbols = []string{}
+		}
+		value := &_MsgRelayProviderPrices_3_list{list: &x.Symbols}
+		return protoreflect.ValueOfList(value)
+	case "oracle.v1.MsgRelayProviderPrices.prices":
+		if x.Prices == nil {
+			x.Prices = []string{}
+		}
+		value := &_MsgRelayProviderPrices_4_list{list: &x.Prices}
+		return protoreflect.ValueOfList(value)
+	case "oracle.v1.MsgRelayProviderPrices.sender":
+		panic(fmt.Errorf("field sender of message oracle.v1.MsgRelayProviderPrices is not mutable"))
+	case "oracle.v1.MsgRelayProviderPrices.provider":
+		panic(fmt.Errorf("field provider of message oracle.v1.MsgRelayProviderPrices is not mutable"))
+	case "oracle.v1.MsgRelayProviderPrices.timestamp":
+		panic(fmt.Errorf("field timestamp of message oracle.v1.MsgRelayProviderPrices is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgRelayProviderPrices"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgRelayProviderPrices does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_MsgRelayProviderPrices) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "oracle.v1.MsgRelayProviderPrices.sender":
+		return protoreflect.ValueOfString("")
+	case "oracle.v1.MsgRelayProviderPrices.provider":
+		return protoreflect.ValueOfString("")
+	case "oracle.v1.MsgRelayProviderPrices.symbols":
+		list := []string{}
+		return protoreflect.ValueOfList(&_MsgRelayProviderPrices_3_list{list: &list})
+	case "oracle.v1.MsgRelayProviderPrices.prices":
+		list := []string{}
+		return protoreflect.ValueOfList(&_MsgRelayProviderPrices_4_list{list: &list})
+	case "oracle.v1.MsgRelayProviderPrices.timestamp":
+		return protoreflect.ValueOfInt64(int64(0))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgRelayProviderPrices"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgRelayProviderPrices does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_MsgRelayProviderPrices) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in oracle.v1.MsgRelayProviderPrices", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_MsgRelayProviderPrices) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgRelayProviderPrices) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_MsgRelayProviderPrices) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_MsgRelayProviderPrices) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*MsgRelayProviderPrices)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		l = len(x.Sender)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		l = len(x.Provider)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if len(x.Symbols) > 0 {
+			for _, s := range x.Symbols {
+				l = len(s)
+				n += 1 + l + runtime.Sov(uint64(l))
+			}
+		}
+		if len(x.Prices) > 0 {
+			for _, s := range x.Prices {
+				l = len(s)
+				n += 1 + l + runtime.Sov(uint64(l))
+			}
+		}
+		if x.Timestamp != 0 {
+			n += 1 + runtime.Sov(uint64(x.Timestamp))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*MsgRelayProviderPrices)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.Timestamp != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.Timestamp))
+			i--
+			dAtA[i] = 0x28
+		}
+		if len(x.Prices) > 0 {
+			for iNdEx := len(x.Prices) - 1; iNdEx >= 0; iNdEx-- {
+				i -= len(x.Prices[iNdEx])
+				copy(dAtA[i:], x.Prices[iNdEx])
+				i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Prices[iNdEx])))
+				i--
+				dAtA[i] = 0x22
+			}
+		}
+		if len(x.Symbols) > 0 {
+			for iNdEx := len(x.Symbols) - 1; iNdEx >= 0; iNdEx-- {
+				i -= len(x.Symbols[iNdEx])
+				copy(dAtA[i:], x.Symbols[iNdEx])
+				i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Symbols[iNdEx])))
+				i--
+				dAtA[i] = 0x1a
+			}
+		}
+		if len(x.Provider) > 0 {
+			i -= len(x.Provider)
+			copy(dAtA[i:], x.Provider)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Provider)))
+			i--
+			dAtA[i] = 0x12
+		}
+		if len(x.Sender) > 0 {
+			i -= len(x.Sender)
+			copy(dAtA[i:], x.Sender)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Sender)))
+			i--
+			dAtA[i] = 0xa
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*MsgRelayProviderPrices)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgRelayProviderPrices: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgRelayProviderPrices: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Sender", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Sender = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			case 2:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Provider", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Provider = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			case 3:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Symbols", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Symbols = append(x.Symbols, string(dAtA[iNdEx:postIndex]))
+				iNdEx = postIndex
+			case 4:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Prices", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Prices = append(x.Prices, string(dAtA[iNdEx:postIndex]))
+				iNdEx = postIndex
+			case 5:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Timestamp", wireType)
+				}
+				x.Timestamp = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.Timestamp |= int64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var (
+	md_MsgRelayProviderPricesResponse protoreflect.MessageDescriptor
+)
+
+func init() {
+	file_oracle_v1_tx_proto_init()
+	md_MsgRelayProviderPricesResponse = File_oracle_v1_tx_proto.Messages().ByName("MsgRelayProviderPricesResponse")
+}
+
+var _ protoreflect.Message = (*fastReflection_MsgRelayProviderPricesResponse)(nil)
+
+type fastReflection_MsgRelayProviderPricesResponse MsgRelayProviderPricesResponse
+
+func (x *MsgRelayProviderPricesResponse) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_MsgRelayProviderPricesResponse)(x)
+}
+
+func (x *MsgRelayProviderPricesResponse) slowProtoReflect() protoreflect.Message {
+	mi := &file_oracle_v1_tx_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_MsgRelayProviderPricesResponse_messageType fastReflection_MsgRelayProviderPricesResponse_messageType
+var _ protoreflect.MessageType = fastReflection_MsgRelayProviderPricesResponse_messageType{}
+
+type fastReflection_MsgRelayProviderPricesResponse_messageType struct{}
+
+func (x fastReflection_MsgRelayProviderPricesResponse_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_MsgRelayProviderPricesResponse)(nil)
+}
+func (x fastReflection_MsgRelayProviderPricesResponse_messageType) New() protoreflect.Message {
+	return new(fastReflection_MsgRelayProviderPricesResponse)
+}
+func (x fastReflection_MsgRelayProviderPricesResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgRelayProviderPricesResponse
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_MsgRelayProviderPricesResponse) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgRelayProviderPricesResponse
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_MsgRelayProviderPricesResponse) Type() protoreflect.MessageType {
+	return _fastReflection_MsgRelayProviderPricesResponse_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_MsgRelayProviderPricesResponse) New() protoreflect.Message {
+	return new(fastReflection_MsgRelayProviderPricesResponse)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_MsgRelayProviderPricesResponse) Interface() protoreflect.ProtoMessage {
+	return (*MsgRelayProviderPricesResponse)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_MsgRelayProviderPricesResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_MsgRelayProviderPricesResponse) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgRelayProviderPricesResponse"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgRelayProviderPricesResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgRelayProviderPricesResponse) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgRelayProviderPricesResponse"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgRelayProviderPricesResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_MsgRelayProviderPricesResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgRelayProviderPricesResponse"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgRelayProviderPricesResponse does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgRelayProviderPricesResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgRelayProviderPricesResponse"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgRelayProviderPricesResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgRelayProviderPricesResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgRelayProviderPricesResponse"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgRelayProviderPricesResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_MsgRelayProviderPricesResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgRelayProviderPricesResponse"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgRelayProviderPricesResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_MsgRelayProviderPricesResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in oracle.v1.MsgRelayProviderPricesResponse", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_MsgRelayProviderPricesResponse) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgRelayProviderPricesResponse) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_MsgRelayProviderPricesResponse) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_MsgRelayProviderPricesResponse) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*MsgRelayProviderPricesResponse)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*MsgRelayProviderPricesResponse)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*MsgRelayProviderPricesResponse)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgRelayProviderPricesResponse: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgRelayProviderPricesResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var _ protoreflect.List = (*_MsgRegisterProvider_3_list)(nil)
+
+type _MsgRegisterProvider_3_list struct {
+	list *[]string
+}
+
+func (x *_MsgRegisterProvider_3_list) Len() int {
+	if x.list == nil {
+		return 0
+	}
+	return len(*x.list)
+}
+
+func (x *_MsgRegisterProvider_3_list) Get(i int) protoreflect.Value {
+	return protoreflect.ValueOfString((*x.list)[i])
+}
+
+func (x *_MsgRegisterProvider_3_list) Set(i int, value protoreflect.Value) {
+	valueUnwrapped := value.String()
+	concreteValue := valueUnwrapped
+	(*x.list)[i] = concreteValue
+}
+
+func (x *_MsgRegisterProvider_3_list) Append(value protoreflect.Value) {
+	valueUnwrapped := value.String()
+	concreteValue := valueUnwrapped
+	*x.list = append(*x.list, concreteValue)
+}
+
+func (x *_MsgRegisterProvider_3_list) AppendMutable() protoreflect.Value {
+	panic(fmt.Errorf("AppendMutable can not be called on message MsgRegisterProvider at list field Relayers as it is not of Message kind"))
+}
+
+func (x *_MsgRegisterProvider_3_list) Truncate(n int) {
+	*x.list = (*x.list)[:n]
+}
+
+func (x *_MsgRegisterProvider_3_list) NewElement() protoreflect.Value {
+	v := ""
+	return protoreflect.ValueOfString(v)
+}
+
+func (x *_MsgRegisterProvider_3_list) IsValid() bool {
+	return x.list != nil
+}
+
+var (
+	md_MsgRegisterProvider             protoreflect.MessageDescriptor
+	fd_MsgRegisterProvider_authority   protoreflect.FieldDescriptor
+	fd_MsgRegisterProvider_provider    protoreflect.FieldDescriptor
+	fd_MsgRegisterProvider_relayers    protoreflect.FieldDescriptor
+	fd_MsgRegisterProvider_description protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_oracle_v1_tx_proto_init()
+	md_MsgRegisterProvider = File_oracle_v1_tx_proto.Messages().ByName("MsgRegisterProvider")
+	fd_MsgRegisterProvider_authority = md_MsgRegisterProvider.Fields().ByName("authority")
+	fd_MsgRegisterProvider_provider = md_MsgRegisterProvider.Fields().ByName("provider")
+	fd_MsgRegisterProvider_relayers = md_MsgRegisterProvider.Fields().ByName("relayers")
+	fd_MsgRegisterProvider_description = md_MsgRegisterProvider.Fields().ByName("description")
+}
+
+var _ protoreflect.Message = (*fastReflection_MsgRegisterProvider)(nil)
+
+type fastReflection_MsgRegisterProvider MsgRegisterProvider
+
+func (x *MsgRegisterProvider) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_MsgRegisterProvider)(x)
+}
+
+func (x *MsgRegisterProvider) slowProtoReflect() protoreflect.Message {
+	mi := &file_oracle_v1_tx_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_MsgRegisterProvider_messageType fastReflection_MsgRegisterProvider_messageType
+var _ protoreflect.MessageType = fastReflection_MsgRegisterProvider_messageType{}
+
+type fastReflection_MsgRegisterProvider_messageType struct{}
+
+func (x fastReflection_MsgRegisterProvider_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_MsgRegisterProvider)(nil)
+}
+func (x fastReflection_MsgRegisterProvider_messageType) New() protoreflect.Message {
+	return new(fastReflection_MsgRegisterProvider)
+}
+func (x fastReflection_MsgRegisterProvider_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgRegisterProvider
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_MsgRegisterProvider) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgRegisterProvider
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_MsgRegisterProvider) Type() protoreflect.MessageType {
+	return _fastReflection_MsgRegisterProvider_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_MsgRegisterProvider) New() protoreflect.Message {
+	return new(fastReflection_MsgRegisterProvider)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_MsgRegisterProvider) Interface() protoreflect.ProtoMessage {
+	return (*MsgRegisterProvider)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_MsgRegisterProvider) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.Authority != "" {
+		value := protoreflect.ValueOfString(x.Authority)
+		if !f(fd_MsgRegisterProvider_authority, value) {
+			return
+		}
+	}
+	if x.Provider != "" {
+		value := protoreflect.ValueOfString(x.Provider)
+		if !f(fd_MsgRegisterProvider_provider, value) {
+			return
+		}
+	}
+	if len(x.Relayers) != 0 {
+		value := protoreflect.ValueOfList(&_MsgRegisterProvider_3_list{list: &x.Relayers})
+		if !f(fd_MsgRegisterProvider_relayers, value) {
+			return
+		}
+	}
+	if x.Description != "" {
+		value := protoreflect.ValueOfString(x.Description)
+		if !f(fd_MsgRegisterProvider_description, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_MsgRegisterProvider) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "oracle.v1.MsgRegisterProvider.authority":
+		return x.Authority != ""
+	case "oracle.v1.MsgRegisterProvider.provider":
+		return x.Provider != ""
+	case "oracle.v1.MsgRegisterProvider.relayers":
+		return len(x.Relayers) != 0
+	case "oracle.v1.MsgRegisterProvider.description":
+		return x.Description != ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgRegisterProvider"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgRegisterProvider does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgRegisterProvider) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "oracle.v1.MsgRegisterProvider.authority":
+		x.Authority = ""
+	case "oracle.v1.MsgRegisterProvider.provider":
+		x.Provider = ""
+	case "oracle.v1.MsgRegisterProvider.relayers":
+		x.Relayers = nil
+	case "oracle.v1.MsgRegisterProvider.description":
+		x.Description = ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgRegisterProvider"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgRegisterProvider does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_MsgRegisterProvider) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "oracle.v1.MsgRegisterProvider.authority":
+		value := x.Authority
+		return protoreflect.ValueOfString(value)
+	case "oracle.v1.MsgRegisterProvider.provider":
+		value := x.Provider
+		return protoreflect.ValueOfString(value)
+	case "oracle.v1.MsgRegisterProvider.relayers":
+		if len(x.Relayers) == 0 {
+			return protoreflect.ValueOfList(&_MsgRegisterProvider_3_list{})
+		}
+		listValue := &_MsgRegisterProvider_3_list{list: &x.Relayers}
+		return protoreflect.ValueOfList(listValue)
+	case "oracle.v1.MsgRegisterProvider.description":
+		value := x.Description
+		return protoreflect.ValueOfString(value)
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgRegisterProvider"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgRegisterProvider does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgRegisterProvider) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "oracle.v1.MsgRegisterProvider.authority":
+		x.Authority = value.Interface().(string)
+	case "oracle.v1.MsgRegisterProvider.provider":
+		x.Provider = value.Interface().(string)
+	case "oracle.v1.MsgRegisterProvider.relayers":
+		lv := value.List()
+		clv := lv.(*_MsgRegisterProvider_3_list)
+		x.Relayers = *clv.list
+	case "oracle.v1.MsgRegisterProvider.description":
+		x.Description = value.Interface().(string)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgRegisterProvider"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgRegisterProvider does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgRegisterProvider) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "oracle.v1.MsgRegisterProvider.relayers":
+		if x.Relayers == nil {
+			x.Relayers = []string{}
+		}
+		value := &_MsgRegisterProvider_3_list{list: &x.Relayers}
+		return protoreflect.ValueOfList(value)
+	case "oracle.v1.MsgRegisterProvider.authority":
+		panic(fmt.Errorf("field authority of message oracle.v1.MsgRegisterProvider is not mutable"))
+	case "oracle.v1.MsgRegisterProvider.provider":
+		panic(fmt.Errorf("field provider of message oracle.v1.MsgRegisterProvider is not mutable"))
+	case "oracle.v1.MsgRegisterProvider.description":
+		panic(fmt.Errorf("field description of message oracle.v1.MsgRegisterProvider is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgRegisterProvider"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgRegisterProvider does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_MsgRegisterProvider) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "oracle.v1.MsgRegisterProvider.authority":
+		return protoreflect.ValueOfString("")
+	case "oracle.v1.MsgRegisterProvider.provider":
+		return protoreflect.ValueOfString("")
+	case "oracle.v1.MsgRegisterProvider.relayers":
+		list := []string{}
+		return protoreflect.ValueOfList(&_MsgRegisterProvider_3_list{list: &list})
+	case "oracle.v1.MsgRegisterProvider.description":
+		return protoreflect.ValueOfString("")
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgRegisterProvider"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgRegisterProvider does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_MsgRegisterProvider) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in oracle.v1.MsgRegisterProvider", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_MsgRegisterProvider) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgRegisterProvider) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_MsgRegisterProvider) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_MsgRegisterProvider) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*MsgRegisterProvider)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		l = len(x.Authority)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		l = len(x.Provider)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if len(x.Relayers) > 0 {
+			for _, s := range x.Relayers {
+				l = len(s)
+				n += 1 + l + runtime.Sov(uint64(l))
+			}
+		}
+		l = len(x.Description)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*MsgRegisterProvider)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if len(x.Description) > 0 {
+			i -= len(x.Description)
+			copy(dAtA[i:], x.Description)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Description)))
+			i--
+			dAtA[i] = 0x22
+		}
+		if len(x.Relayers) > 0 {
+			for iNdEx := len(x.Relayers) - 1; iNdEx >= 0; iNdEx-- {
+				i -= len(x.Relayers[iNdEx])
+				copy(dAtA[i:], x.Relayers[iNdEx])
+				i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Relayers[iNdEx])))
+				i--
+				dAtA[i] = 0x1a
+			}
+		}
+		if len(x.Provider) > 0 {
+			i -= len(x.Provider)
+			copy(dAtA[i:], x.Provider)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Provider)))
+			i--
+			dAtA[i] = 0x12
+		}
+		if len(x.Authority) > 0 {
+			i -= len(x.Authority)
+			copy(dAtA[i:], x.Authority)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Authority)))
+			i--
+			dAtA[i] = 0xa
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*MsgRegisterProvider)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgRegisterProvider: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgRegisterProvider: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Authority", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Authority = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			case 2:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Provider", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Provider = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			case 3:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Relayers", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Relayers = append(x.Relayers, string(dAtA[iNdEx:postIndex]))
+				iNdEx = postIndex
+			case 4:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Description", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Description = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var (
+	md_MsgRegisterProviderResponse protoreflect.MessageDescriptor
+)
+
+func init() {
+	file_oracle_v1_tx_proto_init()
+	md_MsgRegisterProviderResponse = File_oracle_v1_tx_proto.Messages().ByName("MsgRegisterProviderResponse")
+}
+
+var _ protoreflect.Message = (*fastReflection_MsgRegisterProviderResponse)(nil)
+
+type fastReflection_MsgRegisterProviderResponse MsgRegisterProviderResponse
+
+func (x *MsgRegisterProviderResponse) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_MsgRegisterProviderResponse)(x)
+}
+
+func (x *MsgRegisterProviderResponse) slowProtoReflect() protoreflect.Message {
+	mi := &file_oracle_v1_tx_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_MsgRegisterProviderResponse_messageType fastReflection_MsgRegisterProviderResponse_messageType
+var _ protoreflect.MessageType = fastReflection_MsgRegisterProviderResponse_messageType{}
+
+type fastReflection_MsgRegisterProviderResponse_messageType struct{}
+
+func (x fastReflection_MsgRegisterProviderResponse_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_MsgRegisterProviderResponse)(nil)
+}
+func (x fastReflection_MsgRegisterProviderResponse_messageType) New() protoreflect.Message {
+	return new(fastReflection_MsgRegisterProviderResponse)
+}
+func (x fastReflection_MsgRegisterProviderResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgRegisterProviderResponse
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_MsgRegisterProviderResponse) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgRegisterProviderResponse
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_MsgRegisterProviderResponse) Type() protoreflect.MessageType {
+	return _fastReflection_MsgRegisterProviderResponse_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_MsgRegisterProviderResponse) New() protoreflect.Message {
+	return new(fastReflection_MsgRegisterProviderResponse)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_MsgRegisterProviderResponse) Interface() protoreflect.ProtoMessage {
+	return (*MsgRegisterProviderResponse)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_MsgRegisterProviderResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_MsgRegisterProviderResponse) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgRegisterProviderResponse"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgRegisterProviderResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgRegisterProviderResponse) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgRegisterProviderResponse"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgRegisterProviderResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_MsgRegisterProviderResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgRegisterProviderResponse"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgRegisterProviderResponse does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgRegisterProviderResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgRegisterProviderResponse"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgRegisterProviderResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgRegisterProviderResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgRegisterProviderResponse"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgRegisterProviderResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_MsgRegisterProviderResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgRegisterProviderResponse"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgRegisterProviderResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_MsgRegisterProviderResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in oracle.v1.MsgRegisterProviderResponse", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_MsgRegisterProviderResponse) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgRegisterProviderResponse) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_MsgRegisterProviderResponse) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_MsgRegisterProviderResponse) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*MsgRegisterProviderResponse)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*MsgRegisterProviderResponse)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*MsgRegisterProviderResponse)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgRegisterProviderResponse: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgRegisterProviderResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var _ protoreflect.List = (*_MsgUpdateProvider_3_list)(nil)
+
+type _MsgUpdateProvider_3_list struct {
+	list *[]string
+}
+
+func (x *_MsgUpdateProvider_3_list) Len() int {
+	if x.list == nil {
+		return 0
+	}
+	return len(*x.list)
+}
+
+func (x *_MsgUpdateProvider_3_list) Get(i int) protoreflect.Value {
+	return protoreflect.ValueOfString((*x.list)[i])
+}
+
+func (x *_MsgUpdateProvider_3_list) Set(i int, value protoreflect.Value) {
+	valueUnwrapped := value.String()
+	concreteValue := valueUnwrapped
+	(*x.list)[i] = concreteValue
+}
+
+func (x *_MsgUpdateProvider_3_list) Append(value protoreflect.Value) {
+	valueUnwrapped := value.String()
+	concreteValue := valueUnwrapped
+	*x.list = append(*x.list, concreteValue)
+}
+
+func (x *_MsgUpdateProvider_3_list) AppendMutable() protoreflect.Value {
+	panic(fmt.Errorf("AppendMutable can not be called on message MsgUpdateProvider at list field Relayers as it is not of Message kind"))
+}
+
+func (x *_MsgUpdateProvider_3_list) Truncate(n int) {
+	*x.list = (*x.list)[:n]
+}
+
+func (x *_MsgUpdateProvider_3_list) NewElement() protoreflect.Value {
+	v := ""
+	return protoreflect.ValueOfString(v)
+}
+
+func (x *_MsgUpdateProvider_3_list) IsValid() bool {
+	return x.list != nil
+}
+
+var (
+	md_MsgUpdateProvider             protoreflect.MessageDescriptor
+	fd_MsgUpdateProvider_authority   protoreflect.FieldDescriptor
+	fd_MsgUpdateProvider_provider    protoreflect.FieldDescriptor
+	fd_MsgUpdateProvider_relayers    protoreflect.FieldDescriptor
+	fd_MsgUpdateProvider_is_active   protoreflect.FieldDescriptor
+	fd_MsgUpdateProvider_description protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_oracle_v1_tx_proto_init()
+	md_MsgUpdateProvider = File_oracle_v1_tx_proto.Messages().ByName("MsgUpdateProvider")
+	fd_MsgUpdateProvider_authority = md_MsgUpdateProvider.Fields().ByName("authority")
+	fd_MsgUpdateProvider_provider = md_MsgUpdateProvider.Fields().ByName("provider")
+	fd_MsgUpdateProvider_relayers = md_MsgUpdateProvider.Fields().ByName("relayers")
+	fd_MsgUpdateProvider_is_active = md_MsgUpdateProvider.Fields().ByName("is_active")
+	fd_MsgUpdateProvider_description = md_MsgUpdateProvider.Fields().ByName("description")
+}
+
+var _ protoreflect.Message = (*fastReflection_MsgUpdateProvider)(nil)
+
+type fastReflection_MsgUpdateProvider MsgUpdateProvider
+
+func (x *MsgUpdateProvider) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_MsgUpdateProvider)(x)
+}
+
+func (x *MsgUpdateProvider) slowProtoReflect() protoreflect.Message {
+	mi := &file_oracle_v1_tx_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_MsgUpdateProvider_messageType fastReflection_MsgUpdateProvider_messageType
+var _ protoreflect.MessageType = fastReflection_MsgUpdateProvider_messageType{}
+
+type fastReflection_MsgUpdateProvider_messageType struct{}
+
+func (x fastReflection_MsgUpdateProvider_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_MsgUpdateProvider)(nil)
+}
+func (x fastReflection_MsgUpdateProvider_messageType) New() protoreflect.Message {
+	return new(fastReflection_MsgUpdateProvider)
+}
+func (x fastReflection_MsgUpdateProvider_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgUpdateProvider
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_MsgUpdateProvider) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgUpdateProvider
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_MsgUpdateProvider) Type() protoreflect.MessageType {
+	return _fastReflection_MsgUpdateProvider_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_MsgUpdateProvider) New() protoreflect.Message {
+	return new(fastReflection_MsgUpdateProvider)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_MsgUpdateProvider) Interface() protoreflect.ProtoMessage {
+	return (*MsgUpdateProvider)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_MsgUpdateProvider) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.Authority != "" {
+		value := protoreflect.ValueOfString(x.Authority)
+		if !f(fd_MsgUpdateProvider_authority, value) {
+			return
+		}
+	}
+	if x.Provider != "" {
+		value := protoreflect.ValueOfString(x.Provider)
+		if !f(fd_MsgUpdateProvider_provider, value) {
+			return
+		}
+	}
+	if len(x.Relayers) != 0 {
+		value := protoreflect.ValueOfList(&_MsgUpdateProvider_3_list{list: &x.Relayers})
+		if !f(fd_MsgUpdateProvider_relayers, value) {
+			return
+		}
+	}
+	if x.IsActive != false {
+		value := protoreflect.ValueOfBool(x.IsActive)
+		if !f(fd_MsgUpdateProvider_is_active, value) {
+			return
+		}
+	}
+	if x.Description != "" {
+		value := protoreflect.ValueOfString(x.Description)
+		if !f(fd_MsgUpdateProvider_description, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_MsgUpdateProvider) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "oracle.v1.MsgUpdateProvider.authority":
+		return x.Authority != ""
+	case "oracle.v1.MsgUpdateProvider.provider":
+		return x.Provider != ""
+	case "oracle.v1.MsgUpdateProvider.relayers":
+		return len(x.Relayers) != 0
+	case "oracle.v1.MsgUpdateProvider.is_active":
+		return x.IsActive != false
+	case "oracle.v1.MsgUpdateProvider.description":
+		return x.Description != ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgUpdateProvider"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgUpdateProvider does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgUpdateProvider) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "oracle.v1.MsgUpdateProvider.authority":
+		x.Authority = ""
+	case "oracle.v1.MsgUpdateProvider.provider":
+		x.Provider = ""
+	case "oracle.v1.MsgUpdateProvider.relayers":
+		x.Relayers = nil
+	case "oracle.v1.MsgUpdateProvider.is_active":
+		x.IsActive = false
+	case "oracle.v1.MsgUpdateProvider.description":
+		x.Description = ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgUpdateProvider"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgUpdateProvider does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_MsgUpdateProvider) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "oracle.v1.MsgUpdateProvider.authority":
+		value := x.Authority
+		return protoreflect.ValueOfString(value)
+	case "oracle.v1.MsgUpdateProvider.provider":
+		value := x.Provider
+		return protoreflect.ValueOfString(value)
+	case "oracle.v1.MsgUpdateProvider.relayers":
+		if len(x.Relayers) == 0 {
+			return protoreflect.ValueOfList(&_MsgUpdateProvider_3_list{})
+		}
+		listValue := &_MsgUpdateProvider_3_list{list: &x.Relayers}
+		return protoreflect.ValueOfList(listValue)
+	case "oracle.v1.MsgUpdateProvider.is_active":
+		value := x.IsActive
+		return protoreflect.ValueOfBool(value)
+	case "oracle.v1.MsgUpdateProvider.description":
+		value := x.Description
+		return protoreflect.ValueOfString(value)
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgUpdateProvider"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgUpdateProvider does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgUpdateProvider) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "oracle.v1.MsgUpdateProvider.authority":
+		x.Authority = value.Interface().(string)
+	case "oracle.v1.MsgUpdateProvider.provider":
+		x.Provider = value.Interface().(string)
+	case "oracle.v1.MsgUpdateProvider.relayers":
+		lv := value.List()
+		clv := lv.(*_MsgUpdateProvider_3_list)
+		x.Relayers = *clv.list
+	case "oracle.v1.MsgUpdateProvider.is_active":
+		x.IsActive = value.Bool()
+	case "oracle.v1.MsgUpdateProvider.description":
+		x.Description = value.Interface().(string)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgUpdateProvider"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgUpdateProvider does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgUpdateProvider) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "oracle.v1.MsgUpdateProvider.relayers":
+		if x.Relayers == nil {
+			x.Relayers = []string{}
+		}
+		value := &_MsgUpdateProvider_3_list{list: &x.Relayers}
+		return protoreflect.ValueOfList(value)
+	case "oracle.v1.MsgUpdateProvider.authority":
+		panic(fmt.Errorf("field authority of message oracle.v1.MsgUpdateProvider is not mutable"))
+	case "oracle.v1.MsgUpdateProvider.provider":
+		panic(fmt.Errorf("field provider of message oracle.v1.MsgUpdateProvider is not mutable"))
+	case "oracle.v1.MsgUpdateProvider.is_active":
+		panic(fmt.Errorf("field is_active of message oracle.v1.MsgUpdateProvider is not mutable"))
+	case "oracle.v1.MsgUpdateProvider.description":
+		panic(fmt.Errorf("field description of message oracle.v1.MsgUpdateProvider is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgUpdateProvider"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgUpdateProvider does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_MsgUpdateProvider) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "oracle.v1.MsgUpdateProvider.authority":
+		return protoreflect.ValueOfString("")
+	case "oracle.v1.MsgUpdateProvider.provider":
+		return protoreflect.ValueOfString("")
+	case "oracle.v1.MsgUpdateProvider.relayers":
+		list := []string{}
+		return protoreflect.ValueOfList(&_MsgUpdateProvider_3_list{list: &list})
+	case "oracle.v1.MsgUpdateProvider.is_active":
+		return protoreflect.ValueOfBool(false)
+	case "oracle.v1.MsgUpdateProvider.description":
+		return protoreflect.ValueOfString("")
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgUpdateProvider"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgUpdateProvider does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_MsgUpdateProvider) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in oracle.v1.MsgUpdateProvider", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_MsgUpdateProvider) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgUpdateProvider) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_MsgUpdateProvider) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_MsgUpdateProvider) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*MsgUpdateProvider)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		l = len(x.Authority)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		l = len(x.Provider)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if len(x.Relayers) > 0 {
+			for _, s := range x.Relayers {
+				l = len(s)
+				n += 1 + l + runtime.Sov(uint64(l))
+			}
+		}
+		if x.IsActive {
+			n += 2
+		}
+		l = len(x.Description)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*MsgUpdateProvider)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if len(x.Description) > 0 {
+			i -= len(x.Description)
+			copy(dAtA[i:], x.Description)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Description)))
+			i--
+			dAtA[i] = 0x2a
+		}
+		if x.IsActive {
+			i--
+			if x.IsActive {
+				dAtA[i] = 1
+			} else {
+				dAtA[i] = 0
+			}
+			i--
+			dAtA[i] = 0x20
+		}
+		if len(x.Relayers) > 0 {
+			for iNdEx := len(x.Relayers) - 1; iNdEx >= 0; iNdEx-- {
+				i -= len(x.Relayers[iNdEx])
+				copy(dAtA[i:], x.Relayers[iNdEx])
+				i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Relayers[iNdEx])))
+				i--
+				dAtA[i] = 0x1a
+			}
+		}
+		if len(x.Provider) > 0 {
+			i -= len(x.Provider)
+			copy(dAtA[i:], x.Provider)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Provider)))
+			i--
+			dAtA[i] = 0x12
+		}
+		if len(x.Authority) > 0 {
+			i -= len(x.Authority)
+			copy(dAtA[i:], x.Authority)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Authority)))
+			i--
+			dAtA[i] = 0xa
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*MsgUpdateProvider)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgUpdateProvider: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgUpdateProvider: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Authority", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Authority = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			case 2:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Provider", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Provider = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			case 3:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Relayers", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Relayers = append(x.Relayers, string(dAtA[iNdEx:postIndex]))
+				iNdEx = postIndex
+			case 4:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field IsActive", wireType)
+				}
+				var v int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					v |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				x.IsActive = bool(v != 0)
+			case 5:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Description", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Description = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var (
+	md_MsgUpdateProviderResponse protoreflect.MessageDescriptor
+)
+
+func init() {
+	file_oracle_v1_tx_proto_init()
+	md_MsgUpdateProviderResponse = File_oracle_v1_tx_proto.Messages().ByName("MsgUpdateProviderResponse")
+}
+
+var _ protoreflect.Message = (*fastReflection_MsgUpdateProviderResponse)(nil)
+
+type fastReflection_MsgUpdateProviderResponse MsgUpdateProviderResponse
+
+func (x *MsgUpdateProviderResponse) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_MsgUpdateProviderResponse)(x)
+}
+
+func (x *MsgUpdateProviderResponse) slowProtoReflect() protoreflect.Message {
+	mi := &file_oracle_v1_tx_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_MsgUpdateProviderResponse_messageType fastReflection_MsgUpdateProviderResponse_messageType
+var _ protoreflect.MessageType = fastReflection_MsgUpdateProviderResponse_messageType{}
+
+type fastReflection_MsgUpdateProviderResponse_messageType struct{}
+
+func (x fastReflection_MsgUpdateProviderResponse_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_MsgUpdateProviderResponse)(nil)
+}
+func (x fastReflection_MsgUpdateProviderResponse_messageType) New() protoreflect.Message {
+	return new(fastReflection_MsgUpdateProviderResponse)
+}
+func (x fastReflection_MsgUpdateProviderResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgUpdateProviderResponse
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_MsgUpdateProviderResponse) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgUpdateProviderResponse
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_MsgUpdateProviderResponse) Type() protoreflect.MessageType {
+	return _fastReflection_MsgUpdateProviderResponse_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_MsgUpdateProviderResponse) New() protoreflect.Message {
+	return new(fastReflection_MsgUpdateProviderResponse)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_MsgUpdateProviderResponse) Interface() protoreflect.ProtoMessage {
+	return (*MsgUpdateProviderResponse)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_MsgUpdateProviderResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_MsgUpdateProviderResponse) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgUpdateProviderResponse"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgUpdateProviderResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgUpdateProviderResponse) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgUpdateProviderResponse"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgUpdateProviderResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_MsgUpdateProviderResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgUpdateProviderResponse"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgUpdateProviderResponse does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgUpdateProviderResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgUpdateProviderResponse"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgUpdateProviderResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgUpdateProviderResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgUpdateProviderResponse"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgUpdateProviderResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_MsgUpdateProviderResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.MsgUpdateProviderResponse"))
+		}
+		panic(fmt.Errorf("message oracle.v1.MsgUpdateProviderResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_MsgUpdateProviderResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in oracle.v1.MsgUpdateProviderResponse", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_MsgUpdateProviderResponse) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgUpdateProviderResponse) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_MsgUpdateProviderResponse) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_MsgUpdateProviderResponse) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*MsgUpdateProviderResponse)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*MsgUpdateProviderResponse)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*MsgUpdateProviderResponse)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgUpdateProviderResponse: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgUpdateProviderResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
 // Code generated by protoc-gen-go. DO NOT EDIT.
 // versions:
 // 	protoc-gen-go v1.27.0
@@ -1937,6 +5184,294 @@ func (*MsgPostPriceResponse) Descriptor() ([]byte, []int) {
 	return file_oracle_v1_tx_proto_rawDescGZIP(), []int{3}
 }
 
+// MsgRelayProviderPrices allows authorized relayers to submit multiple prices
+type MsgRelayProviderPrices struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Sender is the relayer address
+	Sender string `protobuf:"bytes,1,opt,name=sender,proto3" json:"sender,omitempty"`
+	// Provider name (e.g. "coinmarketcap")
+	Provider string `protobuf:"bytes,2,opt,name=provider,proto3" json:"provider,omitempty"`
+	// Asset symbols (e.g. ["BTC", "ETH", "SOL"])
+	Symbols []string `protobuf:"bytes,3,rep,name=symbols,proto3" json:"symbols,omitempty"`
+	// Prices corresponding to symbols (e.g. ["45000.50", "3000.25", "100.75"])
+	Prices []string `protobuf:"bytes,4,rep,name=prices,proto3" json:"prices,omitempty"`
+	// Timestamp from the provider (optional, will use block time if not provided)
+	Timestamp int64 `protobuf:"varint,5,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+}
+
+func (x *MsgRelayProviderPrices) Reset() {
+	*x = MsgRelayProviderPrices{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_oracle_v1_tx_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *MsgRelayProviderPrices) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MsgRelayProviderPrices) ProtoMessage() {}
+
+// Deprecated: Use MsgRelayProviderPrices.ProtoReflect.Descriptor instead.
+func (*MsgRelayProviderPrices) Descriptor() ([]byte, []int) {
+	return file_oracle_v1_tx_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *MsgRelayProviderPrices) GetSender() string {
+	if x != nil {
+		return x.Sender
+	}
+	return ""
+}
+
+func (x *MsgRelayProviderPrices) GetProvider() string {
+	if x != nil {
+		return x.Provider
+	}
+	return ""
+}
+
+func (x *MsgRelayProviderPrices) GetSymbols() []string {
+	if x != nil {
+		return x.Symbols
+	}
+	return nil
+}
+
+func (x *MsgRelayProviderPrices) GetPrices() []string {
+	if x != nil {
+		return x.Prices
+	}
+	return nil
+}
+
+func (x *MsgRelayProviderPrices) GetTimestamp() int64 {
+	if x != nil {
+		return x.Timestamp
+	}
+	return 0
+}
+
+type MsgRelayProviderPricesResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *MsgRelayProviderPricesResponse) Reset() {
+	*x = MsgRelayProviderPricesResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_oracle_v1_tx_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *MsgRelayProviderPricesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MsgRelayProviderPricesResponse) ProtoMessage() {}
+
+// Deprecated: Use MsgRelayProviderPricesResponse.ProtoReflect.Descriptor instead.
+func (*MsgRelayProviderPricesResponse) Descriptor() ([]byte, []int) {
+	return file_oracle_v1_tx_proto_rawDescGZIP(), []int{5}
+}
+
+// MsgRegisterProvider allows authority to register a new provider
+type MsgRegisterProvider struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Authority address (governance or admin)
+	Authority string `protobuf:"bytes,1,opt,name=authority,proto3" json:"authority,omitempty"`
+	// Provider name (unique identifier)
+	Provider string `protobuf:"bytes,2,opt,name=provider,proto3" json:"provider,omitempty"`
+	// Authorized relayer addresses
+	Relayers []string `protobuf:"bytes,3,rep,name=relayers,proto3" json:"relayers,omitempty"`
+	// Human-readable description
+	Description string `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
+}
+
+func (x *MsgRegisterProvider) Reset() {
+	*x = MsgRegisterProvider{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_oracle_v1_tx_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *MsgRegisterProvider) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MsgRegisterProvider) ProtoMessage() {}
+
+// Deprecated: Use MsgRegisterProvider.ProtoReflect.Descriptor instead.
+func (*MsgRegisterProvider) Descriptor() ([]byte, []int) {
+	return file_oracle_v1_tx_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *MsgRegisterProvider) GetAuthority() string {
+	if x != nil {
+		return x.Authority
+	}
+	return ""
+}
+
+func (x *MsgRegisterProvider) GetProvider() string {
+	if x != nil {
+		return x.Provider
+	}
+	return ""
+}
+
+func (x *MsgRegisterProvider) GetRelayers() []string {
+	if x != nil {
+		return x.Relayers
+	}
+	return nil
+}
+
+func (x *MsgRegisterProvider) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+type MsgRegisterProviderResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *MsgRegisterProviderResponse) Reset() {
+	*x = MsgRegisterProviderResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_oracle_v1_tx_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *MsgRegisterProviderResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MsgRegisterProviderResponse) ProtoMessage() {}
+
+// Deprecated: Use MsgRegisterProviderResponse.ProtoReflect.Descriptor instead.
+func (*MsgRegisterProviderResponse) Descriptor() ([]byte, []int) {
+	return file_oracle_v1_tx_proto_rawDescGZIP(), []int{7}
+}
+
+// MsgUpdateProvider allows authority to update provider info
+type MsgUpdateProvider struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Authority address (governance or admin)
+	Authority string `protobuf:"bytes,1,opt,name=authority,proto3" json:"authority,omitempty"`
+	// Provider name to update
+	Provider string `protobuf:"bytes,2,opt,name=provider,proto3" json:"provider,omitempty"`
+	// New relayer addresses (replaces existing)
+	Relayers []string `protobuf:"bytes,3,rep,name=relayers,proto3" json:"relayers,omitempty"`
+	// Whether provider is active
+	IsActive bool `protobuf:"varint,4,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	// Updated description
+	Description string `protobuf:"bytes,5,opt,name=description,proto3" json:"description,omitempty"`
+}
+
+func (x *MsgUpdateProvider) Reset() {
+	*x = MsgUpdateProvider{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_oracle_v1_tx_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *MsgUpdateProvider) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MsgUpdateProvider) ProtoMessage() {}
+
+// Deprecated: Use MsgUpdateProvider.ProtoReflect.Descriptor instead.
+func (*MsgUpdateProvider) Descriptor() ([]byte, []int) {
+	return file_oracle_v1_tx_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *MsgUpdateProvider) GetAuthority() string {
+	if x != nil {
+		return x.Authority
+	}
+	return ""
+}
+
+func (x *MsgUpdateProvider) GetProvider() string {
+	if x != nil {
+		return x.Provider
+	}
+	return ""
+}
+
+func (x *MsgUpdateProvider) GetRelayers() []string {
+	if x != nil {
+		return x.Relayers
+	}
+	return nil
+}
+
+func (x *MsgUpdateProvider) GetIsActive() bool {
+	if x != nil {
+		return x.IsActive
+	}
+	return false
+}
+
+func (x *MsgUpdateProvider) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+type MsgUpdateProviderResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *MsgUpdateProviderResponse) Reset() {
+	*x = MsgUpdateProviderResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_oracle_v1_tx_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *MsgUpdateProviderResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MsgUpdateProviderResponse) ProtoMessage() {}
+
+// Deprecated: Use MsgUpdateProviderResponse.ProtoReflect.Descriptor instead.
+func (*MsgUpdateProviderResponse) Descriptor() ([]byte, []int) {
+	return file_oracle_v1_tx_proto_rawDescGZIP(), []int{9}
+}
+
 var File_oracle_v1_tx_proto protoreflect.FileDescriptor
 
 var file_oracle_v1_tx_proto_rawDesc = []byte{
@@ -1945,51 +5480,123 @@ var file_oracle_v1_tx_proto_rawDesc = []byte{
 	0x17, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2f, 0x6d, 0x73, 0x67, 0x2f, 0x76, 0x31, 0x2f, 0x6d,
 	0x73, 0x67, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x17, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65,
 	0x2f, 0x76, 0x31, 0x2f, 0x67, 0x65, 0x6e, 0x65, 0x73, 0x69, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x1a, 0x14, 0x67, 0x6f, 0x67, 0x6f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x67, 0x6f, 0x67,
-	0x6f, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x19, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x5f,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x22, 0x8a, 0x01, 0x0a, 0x0f, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65,
-	0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x12, 0x36, 0x0a, 0x09, 0x61, 0x75, 0x74, 0x68, 0x6f, 0x72,
+	0x6f, 0x1a, 0x15, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x2f, 0x76, 0x31, 0x2f, 0x73, 0x74, 0x61,
+	0x74, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x14, 0x67, 0x6f, 0x67, 0x6f, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x2f, 0x67, 0x6f, 0x67, 0x6f, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x19,
+	0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x63, 0x6f, 0x73,
+	0x6d, 0x6f, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x11, 0x61, 0x6d, 0x69, 0x6e, 0x6f,
+	0x2f, 0x61, 0x6d, 0x69, 0x6e, 0x6f, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0xa5, 0x01, 0x0a,
+	0x0f, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73,
+	0x12, 0x36, 0x0a, 0x09, 0x61, 0x75, 0x74, 0x68, 0x6f, 0x72, 0x69, 0x74, 0x79, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x09, 0x42, 0x18, 0xd2, 0xb4, 0x2d, 0x14, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e,
+	0x41, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x52, 0x09, 0x61,
+	0x75, 0x74, 0x68, 0x6f, 0x72, 0x69, 0x74, 0x79, 0x12, 0x2f, 0x0a, 0x06, 0x70, 0x61, 0x72, 0x61,
+	0x6d, 0x73, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x11, 0x2e, 0x6f, 0x72, 0x61, 0x63, 0x6c,
+	0x65, 0x2e, 0x76, 0x31, 0x2e, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x42, 0x04, 0xc8, 0xde, 0x1f,
+	0x00, 0x52, 0x06, 0x70, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x3a, 0x29, 0x82, 0xe7, 0xb0, 0x2a, 0x09,
+	0x61, 0x75, 0x74, 0x68, 0x6f, 0x72, 0x69, 0x74, 0x79, 0x8a, 0xe7, 0xb0, 0x2a, 0x16, 0x6f, 0x72,
+	0x61, 0x63, 0x6c, 0x65, 0x2f, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x61,
+	0x72, 0x61, 0x6d, 0x73, 0x22, 0x19, 0x0a, 0x17, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74,
+	0x65, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22,
+	0xa4, 0x01, 0x0a, 0x0c, 0x4d, 0x73, 0x67, 0x50, 0x6f, 0x73, 0x74, 0x50, 0x72, 0x69, 0x63, 0x65,
+	0x12, 0x32, 0x0a, 0x07, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x09, 0x42, 0x18, 0xd2, 0xb4, 0x2d, 0x14, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x41, 0x64,
+	0x64, 0x72, 0x65, 0x73, 0x73, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x52, 0x07, 0x63, 0x72, 0x65,
+	0x61, 0x74, 0x6f, 0x72, 0x12, 0x14, 0x0a, 0x05, 0x61, 0x73, 0x73, 0x65, 0x74, 0x18, 0x02, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x05, 0x61, 0x73, 0x73, 0x65, 0x74, 0x12, 0x24, 0x0a, 0x05, 0x70, 0x72,
+	0x69, 0x63, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x42, 0x0e, 0xd2, 0xb4, 0x2d, 0x0a, 0x63,
+	0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x44, 0x65, 0x63, 0x52, 0x05, 0x70, 0x72, 0x69, 0x63, 0x65,
+	0x3a, 0x24, 0x82, 0xe7, 0xb0, 0x2a, 0x07, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x8a, 0xe7,
+	0xb0, 0x2a, 0x13, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x2f, 0x4d, 0x73, 0x67, 0x50, 0x6f, 0x73,
+	0x74, 0x50, 0x72, 0x69, 0x63, 0x65, 0x22, 0x16, 0x0a, 0x14, 0x4d, 0x73, 0x67, 0x50, 0x6f, 0x73,
+	0x74, 0x50, 0x72, 0x69, 0x63, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0xe5,
+	0x01, 0x0a, 0x16, 0x4d, 0x73, 0x67, 0x52, 0x65, 0x6c, 0x61, 0x79, 0x50, 0x72, 0x6f, 0x76, 0x69,
+	0x64, 0x65, 0x72, 0x50, 0x72, 0x69, 0x63, 0x65, 0x73, 0x12, 0x30, 0x0a, 0x06, 0x73, 0x65, 0x6e,
+	0x64, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42, 0x18, 0xd2, 0xb4, 0x2d, 0x14, 0x63,
+	0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x41, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x53, 0x74, 0x72,
+	0x69, 0x6e, 0x67, 0x52, 0x06, 0x73, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x12, 0x1a, 0x0a, 0x08, 0x70,
+	0x72, 0x6f, 0x76, 0x69, 0x64, 0x65, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x70,
+	0x72, 0x6f, 0x76, 0x69, 0x64, 0x65, 0x72, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x79, 0x6d, 0x62, 0x6f,
+	0x6c, 0x73, 0x18, 0x03, 0x20, 0x03, 0x28, 0x09, 0x52, 0x07, 0x73, 0x79, 0x6d, 0x62, 0x6f, 0x6c,
+	0x73, 0x12, 0x16, 0x0a, 0x06, 0x70, 0x72, 0x69, 0x63, 0x65, 0x73, 0x18, 0x04, 0x20, 0x03, 0x28,
+	0x09, 0x52, 0x06, 0x70, 0x72, 0x69, 0x63, 0x65, 0x73, 0x12, 0x1c, 0x0a, 0x09, 0x74, 0x69, 0x6d,
+	0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x18, 0x05, 0x20, 0x01, 0x28, 0x03, 0x52, 0x09, 0x74, 0x69,
+	0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x3a, 0x2d, 0x82, 0xe7, 0xb0, 0x2a, 0x06, 0x73, 0x65,
+	0x6e, 0x64, 0x65, 0x72, 0x8a, 0xe7, 0xb0, 0x2a, 0x1d, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x2f,
+	0x4d, 0x73, 0x67, 0x52, 0x65, 0x6c, 0x61, 0x79, 0x50, 0x72, 0x6f, 0x76, 0x69, 0x64, 0x65, 0x72,
+	0x50, 0x72, 0x69, 0x63, 0x65, 0x73, 0x22, 0x20, 0x0a, 0x1e, 0x4d, 0x73, 0x67, 0x52, 0x65, 0x6c,
+	0x61, 0x79, 0x50, 0x72, 0x6f, 0x76, 0x69, 0x64, 0x65, 0x72, 0x50, 0x72, 0x69, 0x63, 0x65, 0x73,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0xd6, 0x01, 0x0a, 0x13, 0x4d, 0x73, 0x67,
+	0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x50, 0x72, 0x6f, 0x76, 0x69, 0x64, 0x65, 0x72,
+	0x12, 0x36, 0x0a, 0x09, 0x61, 0x75, 0x74, 0x68, 0x6f, 0x72, 0x69, 0x74, 0x79, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x09, 0x42, 0x18, 0xd2, 0xb4, 0x2d, 0x14, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e,
+	0x41, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x52, 0x09, 0x61,
+	0x75, 0x74, 0x68, 0x6f, 0x72, 0x69, 0x74, 0x79, 0x12, 0x1a, 0x0a, 0x08, 0x70, 0x72, 0x6f, 0x76,
+	0x69, 0x64, 0x65, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x70, 0x72, 0x6f, 0x76,
+	0x69, 0x64, 0x65, 0x72, 0x12, 0x1a, 0x0a, 0x08, 0x72, 0x65, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x73,
+	0x18, 0x03, 0x20, 0x03, 0x28, 0x09, 0x52, 0x08, 0x72, 0x65, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x73,
+	0x12, 0x20, 0x0a, 0x0b, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x18,
+	0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69,
+	0x6f, 0x6e, 0x3a, 0x2d, 0x82, 0xe7, 0xb0, 0x2a, 0x09, 0x61, 0x75, 0x74, 0x68, 0x6f, 0x72, 0x69,
+	0x74, 0x79, 0x8a, 0xe7, 0xb0, 0x2a, 0x1a, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x2f, 0x4d, 0x73,
+	0x67, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x50, 0x72, 0x6f, 0x76, 0x69, 0x64, 0x65,
+	0x72, 0x22, 0x1d, 0x0a, 0x1b, 0x4d, 0x73, 0x67, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72,
+	0x50, 0x72, 0x6f, 0x76, 0x69, 0x64, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x22, 0xef, 0x01, 0x0a, 0x11, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x72,
+	0x6f, 0x76, 0x69, 0x64, 0x65, 0x72, 0x12, 0x36, 0x0a, 0x09, 0x61, 0x75, 0x74, 0x68, 0x6f, 0x72,
 	0x69, 0x74, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42, 0x18, 0xd2, 0xb4, 0x2d, 0x14, 0x63,
 	0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x41, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x53, 0x74, 0x72,
-	0x69, 0x6e, 0x67, 0x52, 0x09, 0x61, 0x75, 0x74, 0x68, 0x6f, 0x72, 0x69, 0x74, 0x79, 0x12, 0x2f,
-	0x0a, 0x06, 0x70, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x11,
-	0x2e, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x50, 0x61, 0x72, 0x61, 0x6d,
-	0x73, 0x42, 0x04, 0xc8, 0xde, 0x1f, 0x00, 0x52, 0x06, 0x70, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x3a,
-	0x0e, 0x82, 0xe7, 0xb0, 0x2a, 0x09, 0x61, 0x75, 0x74, 0x68, 0x6f, 0x72, 0x69, 0x74, 0x79, 0x22,
-	0x19, 0x0a, 0x17, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x61, 0x72, 0x61,
-	0x6d, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x8c, 0x01, 0x0a, 0x0c, 0x4d,
-	0x73, 0x67, 0x50, 0x6f, 0x73, 0x74, 0x50, 0x72, 0x69, 0x63, 0x65, 0x12, 0x32, 0x0a, 0x07, 0x63,
-	0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42, 0x18, 0xd2, 0xb4,
-	0x2d, 0x14, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x41, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73,
-	0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x52, 0x07, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x12,
-	0x14, 0x0a, 0x05, 0x61, 0x73, 0x73, 0x65, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05,
-	0x61, 0x73, 0x73, 0x65, 0x74, 0x12, 0x24, 0x0a, 0x05, 0x70, 0x72, 0x69, 0x63, 0x65, 0x18, 0x03,
-	0x20, 0x01, 0x28, 0x09, 0x42, 0x0e, 0xd2, 0xb4, 0x2d, 0x0a, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73,
-	0x2e, 0x44, 0x65, 0x63, 0x52, 0x05, 0x70, 0x72, 0x69, 0x63, 0x65, 0x3a, 0x0c, 0x82, 0xe7, 0xb0,
-	0x2a, 0x07, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x22, 0x16, 0x0a, 0x14, 0x4d, 0x73, 0x67,
-	0x50, 0x6f, 0x73, 0x74, 0x50, 0x72, 0x69, 0x63, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x32, 0xa3, 0x01, 0x0a, 0x03, 0x4d, 0x73, 0x67, 0x12, 0x4e, 0x0a, 0x0c, 0x55, 0x70, 0x64,
-	0x61, 0x74, 0x65, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x12, 0x1a, 0x2e, 0x6f, 0x72, 0x61, 0x63,
-	0x6c, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50,
-	0x61, 0x72, 0x61, 0x6d, 0x73, 0x1a, 0x22, 0x2e, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x2e, 0x76,
-	0x31, 0x2e, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x61, 0x72, 0x61, 0x6d,
-	0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x45, 0x0a, 0x09, 0x50, 0x6f, 0x73,
-	0x74, 0x50, 0x72, 0x69, 0x63, 0x65, 0x12, 0x17, 0x2e, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x2e,
-	0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x50, 0x6f, 0x73, 0x74, 0x50, 0x72, 0x69, 0x63, 0x65, 0x1a,
-	0x1f, 0x2e, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x50,
-	0x6f, 0x73, 0x74, 0x50, 0x72, 0x69, 0x63, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x1a, 0x05, 0x80, 0xe7, 0xb0, 0x2a, 0x01, 0x42, 0x95, 0x01, 0x0a, 0x0d, 0x63, 0x6f, 0x6d, 0x2e,
-	0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x2e, 0x76, 0x31, 0x42, 0x07, 0x54, 0x78, 0x50, 0x72, 0x6f,
-	0x74, 0x6f, 0x50, 0x01, 0x5a, 0x36, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d,
-	0x2f, 0x72, 0x6f, 0x6c, 0x6c, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x73, 0x2f, 0x72, 0x6f, 0x6c, 0x6c,
-	0x63, 0x68, 0x61, 0x69, 0x6e, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65,
-	0x2f, 0x76, 0x31, 0x3b, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x76, 0x31, 0xa2, 0x02, 0x03, 0x4f,
-	0x58, 0x58, 0xaa, 0x02, 0x09, 0x4f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x2e, 0x56, 0x31, 0xca, 0x02,
-	0x09, 0x4f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x5c, 0x56, 0x31, 0xe2, 0x02, 0x15, 0x4f, 0x72, 0x61,
-	0x63, 0x6c, 0x65, 0x5c, 0x56, 0x31, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61,
-	0x74, 0x61, 0xea, 0x02, 0x0a, 0x4f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x3a, 0x3a, 0x56, 0x31, 0x62,
-	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x69, 0x6e, 0x67, 0x52, 0x09, 0x61, 0x75, 0x74, 0x68, 0x6f, 0x72, 0x69, 0x74, 0x79, 0x12, 0x1a,
+	0x0a, 0x08, 0x70, 0x72, 0x6f, 0x76, 0x69, 0x64, 0x65, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x08, 0x70, 0x72, 0x6f, 0x76, 0x69, 0x64, 0x65, 0x72, 0x12, 0x1a, 0x0a, 0x08, 0x72, 0x65,
+	0x6c, 0x61, 0x79, 0x65, 0x72, 0x73, 0x18, 0x03, 0x20, 0x03, 0x28, 0x09, 0x52, 0x08, 0x72, 0x65,
+	0x6c, 0x61, 0x79, 0x65, 0x72, 0x73, 0x12, 0x1b, 0x0a, 0x09, 0x69, 0x73, 0x5f, 0x61, 0x63, 0x74,
+	0x69, 0x76, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x08, 0x52, 0x08, 0x69, 0x73, 0x41, 0x63, 0x74,
+	0x69, 0x76, 0x65, 0x12, 0x20, 0x0a, 0x0b, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69,
+	0x6f, 0x6e, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69,
+	0x70, 0x74, 0x69, 0x6f, 0x6e, 0x3a, 0x2b, 0x82, 0xe7, 0xb0, 0x2a, 0x09, 0x61, 0x75, 0x74, 0x68,
+	0x6f, 0x72, 0x69, 0x74, 0x79, 0x8a, 0xe7, 0xb0, 0x2a, 0x18, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65,
+	0x2f, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x76, 0x69, 0x64,
+	0x65, 0x72, 0x22, 0x1b, 0x0a, 0x19, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50,
+	0x72, 0x6f, 0x76, 0x69, 0x64, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x32,
+	0xba, 0x03, 0x0a, 0x03, 0x4d, 0x73, 0x67, 0x12, 0x4e, 0x0a, 0x0c, 0x55, 0x70, 0x64, 0x61, 0x74,
+	0x65, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x12, 0x1a, 0x2e, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65,
+	0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x61, 0x72,
+	0x61, 0x6d, 0x73, 0x1a, 0x22, 0x2e, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x2e, 0x76, 0x31, 0x2e,
+	0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x45, 0x0a, 0x09, 0x50, 0x6f, 0x73, 0x74, 0x50,
+	0x72, 0x69, 0x63, 0x65, 0x12, 0x17, 0x2e, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x2e, 0x76, 0x31,
+	0x2e, 0x4d, 0x73, 0x67, 0x50, 0x6f, 0x73, 0x74, 0x50, 0x72, 0x69, 0x63, 0x65, 0x1a, 0x1f, 0x2e,
+	0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x50, 0x6f, 0x73,
+	0x74, 0x50, 0x72, 0x69, 0x63, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x63,
+	0x0a, 0x13, 0x52, 0x65, 0x6c, 0x61, 0x79, 0x50, 0x72, 0x6f, 0x76, 0x69, 0x64, 0x65, 0x72, 0x50,
+	0x72, 0x69, 0x63, 0x65, 0x73, 0x12, 0x21, 0x2e, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x2e, 0x76,
+	0x31, 0x2e, 0x4d, 0x73, 0x67, 0x52, 0x65, 0x6c, 0x61, 0x79, 0x50, 0x72, 0x6f, 0x76, 0x69, 0x64,
+	0x65, 0x72, 0x50, 0x72, 0x69, 0x63, 0x65, 0x73, 0x1a, 0x29, 0x2e, 0x6f, 0x72, 0x61, 0x63, 0x6c,
+	0x65, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x52, 0x65, 0x6c, 0x61, 0x79, 0x50, 0x72, 0x6f,
+	0x76, 0x69, 0x64, 0x65, 0x72, 0x50, 0x72, 0x69, 0x63, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x12, 0x5a, 0x0a, 0x10, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x50,
+	0x72, 0x6f, 0x76, 0x69, 0x64, 0x65, 0x72, 0x12, 0x1e, 0x2e, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65,
+	0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x50,
+	0x72, 0x6f, 0x76, 0x69, 0x64, 0x65, 0x72, 0x1a, 0x26, 0x2e, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65,
+	0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x50,
+	0x72, 0x6f, 0x76, 0x69, 0x64, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x54, 0x0a, 0x0e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x76, 0x69, 0x64, 0x65,
+	0x72, 0x12, 0x1c, 0x2e, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73,
+	0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x76, 0x69, 0x64, 0x65, 0x72, 0x1a,
+	0x24, 0x2e, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x55,
+	0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x76, 0x69, 0x64, 0x65, 0x72, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x1a, 0x05, 0x80, 0xe7, 0xb0, 0x2a, 0x01, 0x42, 0x95, 0x01, 0x0a,
+	0x0d, 0x63, 0x6f, 0x6d, 0x2e, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x2e, 0x76, 0x31, 0x42, 0x07,
+	0x54, 0x78, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x36, 0x67, 0x69, 0x74, 0x68, 0x75,
+	0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x72, 0x6f, 0x6c, 0x6c, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x73,
+	0x2f, 0x72, 0x6f, 0x6c, 0x6c, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x6f,
+	0x72, 0x61, 0x63, 0x6c, 0x65, 0x2f, 0x76, 0x31, 0x3b, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x76,
+	0x31, 0xa2, 0x02, 0x03, 0x4f, 0x58, 0x58, 0xaa, 0x02, 0x09, 0x4f, 0x72, 0x61, 0x63, 0x6c, 0x65,
+	0x2e, 0x56, 0x31, 0xca, 0x02, 0x09, 0x4f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x5c, 0x56, 0x31, 0xe2,
+	0x02, 0x15, 0x4f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x5c, 0x56, 0x31, 0x5c, 0x47, 0x50, 0x42, 0x4d,
+	0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x0a, 0x4f, 0x72, 0x61, 0x63, 0x6c, 0x65,
+	0x3a, 0x3a, 0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -2004,25 +5611,37 @@ func file_oracle_v1_tx_proto_rawDescGZIP() []byte {
 	return file_oracle_v1_tx_proto_rawDescData
 }
 
-var file_oracle_v1_tx_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_oracle_v1_tx_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_oracle_v1_tx_proto_goTypes = []interface{}{
-	(*MsgUpdateParams)(nil),         // 0: oracle.v1.MsgUpdateParams
-	(*MsgUpdateParamsResponse)(nil), // 1: oracle.v1.MsgUpdateParamsResponse
-	(*MsgPostPrice)(nil),            // 2: oracle.v1.MsgPostPrice
-	(*MsgPostPriceResponse)(nil),    // 3: oracle.v1.MsgPostPriceResponse
-	(*Params)(nil),                  // 4: oracle.v1.Params
+	(*MsgUpdateParams)(nil),                // 0: oracle.v1.MsgUpdateParams
+	(*MsgUpdateParamsResponse)(nil),        // 1: oracle.v1.MsgUpdateParamsResponse
+	(*MsgPostPrice)(nil),                   // 2: oracle.v1.MsgPostPrice
+	(*MsgPostPriceResponse)(nil),           // 3: oracle.v1.MsgPostPriceResponse
+	(*MsgRelayProviderPrices)(nil),         // 4: oracle.v1.MsgRelayProviderPrices
+	(*MsgRelayProviderPricesResponse)(nil), // 5: oracle.v1.MsgRelayProviderPricesResponse
+	(*MsgRegisterProvider)(nil),            // 6: oracle.v1.MsgRegisterProvider
+	(*MsgRegisterProviderResponse)(nil),    // 7: oracle.v1.MsgRegisterProviderResponse
+	(*MsgUpdateProvider)(nil),              // 8: oracle.v1.MsgUpdateProvider
+	(*MsgUpdateProviderResponse)(nil),      // 9: oracle.v1.MsgUpdateProviderResponse
+	(*Params)(nil),                         // 10: oracle.v1.Params
 }
 var file_oracle_v1_tx_proto_depIdxs = []int32{
-	4, // 0: oracle.v1.MsgUpdateParams.params:type_name -> oracle.v1.Params
-	0, // 1: oracle.v1.Msg.UpdateParams:input_type -> oracle.v1.MsgUpdateParams
-	2, // 2: oracle.v1.Msg.PostPrice:input_type -> oracle.v1.MsgPostPrice
-	1, // 3: oracle.v1.Msg.UpdateParams:output_type -> oracle.v1.MsgUpdateParamsResponse
-	3, // 4: oracle.v1.Msg.PostPrice:output_type -> oracle.v1.MsgPostPriceResponse
-	3, // [3:5] is the sub-list for method output_type
-	1, // [1:3] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	10, // 0: oracle.v1.MsgUpdateParams.params:type_name -> oracle.v1.Params
+	0,  // 1: oracle.v1.Msg.UpdateParams:input_type -> oracle.v1.MsgUpdateParams
+	2,  // 2: oracle.v1.Msg.PostPrice:input_type -> oracle.v1.MsgPostPrice
+	4,  // 3: oracle.v1.Msg.RelayProviderPrices:input_type -> oracle.v1.MsgRelayProviderPrices
+	6,  // 4: oracle.v1.Msg.RegisterProvider:input_type -> oracle.v1.MsgRegisterProvider
+	8,  // 5: oracle.v1.Msg.UpdateProvider:input_type -> oracle.v1.MsgUpdateProvider
+	1,  // 6: oracle.v1.Msg.UpdateParams:output_type -> oracle.v1.MsgUpdateParamsResponse
+	3,  // 7: oracle.v1.Msg.PostPrice:output_type -> oracle.v1.MsgPostPriceResponse
+	5,  // 8: oracle.v1.Msg.RelayProviderPrices:output_type -> oracle.v1.MsgRelayProviderPricesResponse
+	7,  // 9: oracle.v1.Msg.RegisterProvider:output_type -> oracle.v1.MsgRegisterProviderResponse
+	9,  // 10: oracle.v1.Msg.UpdateProvider:output_type -> oracle.v1.MsgUpdateProviderResponse
+	6,  // [6:11] is the sub-list for method output_type
+	1,  // [1:6] is the sub-list for method input_type
+	1,  // [1:1] is the sub-list for extension type_name
+	1,  // [1:1] is the sub-list for extension extendee
+	0,  // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_oracle_v1_tx_proto_init() }
@@ -2031,6 +5650,7 @@ func file_oracle_v1_tx_proto_init() {
 		return
 	}
 	file_oracle_v1_genesis_proto_init()
+	file_oracle_v1_state_proto_init()
 	if !protoimpl.UnsafeEnabled {
 		file_oracle_v1_tx_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*MsgUpdateParams); i {
@@ -2080,6 +5700,78 @@ func file_oracle_v1_tx_proto_init() {
 				return nil
 			}
 		}
+		file_oracle_v1_tx_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*MsgRelayProviderPrices); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_oracle_v1_tx_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*MsgRelayProviderPricesResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_oracle_v1_tx_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*MsgRegisterProvider); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_oracle_v1_tx_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*MsgRegisterProviderResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_oracle_v1_tx_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*MsgUpdateProvider); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_oracle_v1_tx_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*MsgUpdateProviderResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -2087,7 +5779,7 @@ func file_oracle_v1_tx_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_oracle_v1_tx_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   10,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

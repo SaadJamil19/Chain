@@ -3,7 +3,7 @@ package oracle.v1;
 
 import "google/api/annotations.proto";
 import "oracle/v1/genesis.proto";
-import "oracle/v1/state.proto"; // Import Price
+import "oracle/v1/state.proto";
 import "gogoproto/gogo.proto";
 
 option go_package = "github.com/rollchains/rollchain/x/oracle/types";
@@ -18,6 +18,31 @@ service Query {
   // GetPrice returns the price of a specific asset
   rpc GetPrice(QueryGetPriceRequest) returns (QueryGetPriceResponse) {
     option (google.api.http).get = "/oracle/v1/price/{asset}";
+  }
+
+  // GetProviderPrice returns price from a specific provider
+  rpc GetProviderPrice(QueryGetProviderPriceRequest) returns (QueryGetProviderPriceResponse) {
+    option (google.api.http).get = "/oracle/v1/provider/{provider}/price/{symbol}";
+  }
+
+  // GetAllProviderPrices returns all prices from a specific provider
+  rpc GetAllProviderPrices(QueryGetAllProviderPricesRequest) returns (QueryGetAllProviderPricesResponse) {
+    option (google.api.http).get = "/oracle/v1/provider/{provider}/prices";
+  }
+
+  // GetProvider returns information about a registered provider
+  rpc GetProvider(QueryGetProviderRequest) returns (QueryGetProviderResponse) {
+    option (google.api.http).get = "/oracle/v1/provider/{provider}";
+  }
+
+  // GetAllProviders returns all registered providers
+  rpc GetAllProviders(QueryGetAllProvidersRequest) returns (QueryGetAllProvidersResponse) {
+    option (google.api.http).get = "/oracle/v1/providers";
+  }
+
+  // GetOracleInfo returns oracle metadata for a symbol
+  rpc GetOracleInfo(QueryGetOracleInfoRequest) returns (QueryGetOracleInfoResponse) {
+    option (google.api.http).get = "/oracle/v1/oracle_info/{symbol}";
   }
 }
 
@@ -38,4 +63,53 @@ message QueryGetPriceRequest {
 // QueryGetPriceResponse is the response type for the Query/GetPrice RPC method.
 message QueryGetPriceResponse {
   Price price = 1 [(gogoproto.nullable) = false];
+}
+
+// QueryGetProviderPriceRequest queries price from specific provider
+message QueryGetProviderPriceRequest {
+  string provider = 1;
+  string symbol = 2;
+}
+
+// QueryGetProviderPriceResponse returns provider price
+message QueryGetProviderPriceResponse {
+  Price price = 1 [(gogoproto.nullable) = false];
+}
+
+// QueryGetAllProviderPricesRequest queries all prices from a provider
+message QueryGetAllProviderPricesRequest {
+  string provider = 1;
+}
+
+// QueryGetAllProviderPricesResponse returns all provider prices
+message QueryGetAllProviderPricesResponse {
+  repeated Price prices = 1 [(gogoproto.nullable) = false];
+}
+
+// QueryGetProviderRequest queries provider information
+message QueryGetProviderRequest {
+  string provider = 1;
+}
+
+// QueryGetProviderResponse returns provider info
+message QueryGetProviderResponse {
+  ProviderInfo provider_info = 1 [(gogoproto.nullable) = false];
+}
+
+// QueryGetAllProvidersRequest queries all providers
+message QueryGetAllProvidersRequest {}
+
+// QueryGetAllProvidersResponse returns all providers
+message QueryGetAllProvidersResponse {
+  repeated ProviderInfo providers = 1 [(gogoproto.nullable) = false];
+}
+
+// QueryGetOracleInfoRequest queries oracle metadata
+message QueryGetOracleInfoRequest {
+  string symbol = 1;
+}
+
+// QueryGetOracleInfoResponse returns oracle metadata
+message QueryGetOracleInfoResponse {
+  OracleInfo oracle_info = 1 [(gogoproto.nullable) = false];
 }

@@ -4,3 +4,9 @@ dist/
 
 # Create cosmos app
 web/
+
+# Ignore build artifacts
+build/
+*.o
+*.so
+

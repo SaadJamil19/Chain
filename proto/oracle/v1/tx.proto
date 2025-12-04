@@ -3,8 +3,10 @@ package oracle.v1;
 
 import "cosmos/msg/v1/msg.proto";
 import "oracle/v1/genesis.proto";
+import "oracle/v1/state.proto";
 import "gogoproto/gogo.proto";
 import "cosmos_proto/cosmos.proto";
+import "amino/amino.proto";
 
 option go_package = "github.com/rollchains/rollchain/x/oracle/types";
 
@@ -17,11 +19,21 @@ service Msg {
 
   // PostPrice allows a validator to post a price for an asset
   rpc PostPrice(MsgPostPrice) returns (MsgPostPriceResponse);
+
+  // RelayProviderPrices allows authorized relayers to submit prices from external providers
+  rpc RelayProviderPrices(MsgRelayProviderPrices) returns (MsgRelayProviderPricesResponse);
+
+  // RegisterProvider allows authority to register a new price provider
+  rpc RegisterProvider(MsgRegisterProvider) returns (MsgRegisterProviderResponse);
+
+  // UpdateProvider allows authority to update provider information
+  rpc UpdateProvider(MsgUpdateProvider) returns (MsgUpdateProviderResponse);
 }
 
 // MsgUpdateParams is the Msg/UpdateParams request type.
 message MsgUpdateParams {
   option (cosmos.msg.v1.signer) = "authority";
+  option (amino.name) = "oracle/MsgUpdateParams";
 
   // authority is the address of the governance account.
   string authority = 1 [(cosmos_proto.scalar) = "cosmos.AddressString"];
@@ -35,6 +47,7 @@ message MsgUpdateParamsResponse {}
 // MsgPostPrice defines the Msg/PostPrice request type.
 message MsgPostPrice {
   option (cosmos.msg.v1.signer) = "creator";
+  option (amino.name) = "oracle/MsgPostPrice";
 
   string creator = 1 [(cosmos_proto.scalar) = "cosmos.AddressString"];
   string asset = 2;   // e.g. "BTC"
@@ -44,3 +57,69 @@ message MsgPostPrice {
 }
 
 message MsgPostPriceResponse {}
+
+// MsgRelayProviderPrices allows authorized relayers to submit multiple prices
+message MsgRelayProviderPrices {
+  option (cosmos.msg.v1.signer) = "sender";
+  option (amino.name) = "oracle/MsgRelayProviderPrices";
+
+  // Sender is the relayer address
+  string sender = 1 [(cosmos_proto.scalar) = "cosmos.AddressString"];
+  
+  // Provider name (e.g. "coinmarketcap")
+  string provider = 2;
+  
+  // Asset symbols (e.g. ["BTC", "ETH", "SOL"])
+  repeated string symbols = 3;
+  
+  // Prices corresponding to symbols (e.g. ["45000.50", "3000.25", "100.75"])
+  repeated string prices = 4;
+  
+  // Timestamp from the provider (optional, will use block time if not provided)
+  int64 timestamp = 5;
+}
+
+message MsgRelayProviderPricesResponse {}
+
+// MsgRegisterProvider allows authority to register a new provider
+message MsgRegisterProvider {
+  option (cosmos.msg.v1.signer) = "authority";
+  option (amino.name) = "oracle/MsgRegisterProvider";
+
+  // Authority address (governance or admin)
+  string authority = 1 [(cosmos_proto.scalar) = "cosmos.AddressString"];
+  
+  // Provider name (unique identifier)
+  string provider = 2;
+  
+  // Authorized relayer addresses
+  repeated string relayers = 3;
+  
+  // Human-readable description
+  string description = 4;
+}
+
+message MsgRegisterProviderResponse {}
+
+// MsgUpdateProvider allows authority to update provider info
+message MsgUpdateProvider {
+  option (cosmos.msg.v1.signer) = "authority";
+  option (amino.name) = "oracle/MsgUpdateProvider";
+
+  // Authority address (governance or admin)
+  string authority = 1 [(cosmos_proto.scalar) = "cosmos.AddressString"];
+  
+  // Provider name to update
+  string provider = 2;
+  
+  // New relayer addresses (replaces existing)
+  repeated string relayers = 3;
+  
+  // Whether provider is active
+  bool is_active = 4;
+  
+  // Updated description
+  string description = 5;
+}
+
+message MsgUpdateProviderResponse {}

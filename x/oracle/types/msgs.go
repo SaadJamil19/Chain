@@ -10,6 +10,9 @@ import (
 var (
 	_ sdk.Msg = &MsgUpdateParams{}
 	_ sdk.Msg = &MsgPostPrice{}
+	_ sdk.Msg = &MsgRelayProviderPrices{}
+	_ sdk.Msg = &MsgRegisterProvider{}
+	_ sdk.Msg = &MsgUpdateProvider{}
 )
 
 // -------------------------------------------------------------------------
@@ -36,6 +39,9 @@ func (msg *MsgUpdateParams) ValidateBasic() error {
 	_, err := sdk.AccAddressFromBech32(msg.Authority)
 	if err != nil {
 		return errors.Wrapf(sdkerrors.ErrInvalidAddress, "invalid authority address (%s)", msg.Authority)
+	}
+	if err := msg.Params.Validate(); err != nil {
+		return errors.Wrap(sdkerrors.ErrInvalidRequest, err.Error())
 	}
 	return nil
 }
@@ -93,5 +99,132 @@ func (msg *MsgPostPrice) ValidateBasic() error {
 		return errors.Wrap(sdkerrors.ErrInvalidRequest, "price cannot be negative")
 	}
 
+	return nil
+}
+
+// -------------------------------------------------------------------------
+// MsgRelayProviderPrices
+// -------------------------------------------------------------------------
+
+func (msg *MsgRelayProviderPrices) Route() string { return ModuleName }
+func (msg *MsgRelayProviderPrices) Type() string  { return "relay_provider_prices" }
+
+func (msg *MsgRelayProviderPrices) GetSigners() []sdk.AccAddress {
+	sender, err := sdk.AccAddressFromBech32(msg.Sender)
+	if err != nil {
+		panic(err)
+	}
+	return []sdk.AccAddress{sender}
+}
+
+func (msg *MsgRelayProviderPrices) GetSignBytes() []byte {
+	bz := AminoCdc.MustMarshalJSON(msg)
+	return sdk.MustSortJSON(bz)
+}
+
+func (msg *MsgRelayProviderPrices) ValidateBasic() error {
+	if _, err := sdk.AccAddressFromBech32(msg.Sender); err != nil {
+		return errors.Wrapf(sdkerrors.ErrInvalidAddress, "invalid sender address (%s)", msg.Sender)
+	}
+	if msg.Provider == "" {
+		return errors.Wrap(sdkerrors.ErrInvalidRequest, "provider cannot be empty")
+	}
+	if len(msg.Symbols) == 0 {
+		return errors.Wrap(sdkerrors.ErrInvalidRequest, "symbols cannot be empty")
+	}
+	if len(msg.Symbols) != len(msg.Prices) {
+		return errors.Wrap(sdkerrors.ErrInvalidRequest, "symbols and prices length mismatch")
+	}
+
+	for i, symbol := range msg.Symbols {
+		if symbol == "" {
+			return errors.Wrapf(sdkerrors.ErrInvalidRequest, "symbol at index %d cannot be empty", i)
+		}
+		price := msg.Prices[i]
+		if price == "" {
+			return errors.Wrapf(sdkerrors.ErrInvalidRequest, "price at index %d cannot be empty", i)
+		}
+		dec, err := math.LegacyNewDecFromStr(price)
+		if err != nil {
+			return errors.Wrapf(sdkerrors.ErrInvalidRequest, "invalid price at index %d: %v", i, err)
+		}
+		if dec.IsNegative() {
+			return errors.Wrapf(sdkerrors.ErrInvalidRequest, "price at index %d cannot be negative", i)
+		}
+	}
+
+	return nil
+}
+
+// -------------------------------------------------------------------------
+// MsgRegisterProvider
+// -------------------------------------------------------------------------
+
+func (msg *MsgRegisterProvider) Route() string { return ModuleName }
+func (msg *MsgRegisterProvider) Type() string  { return "register_provider" }
+
+func (msg *MsgRegisterProvider) GetSigners() []sdk.AccAddress {
+	auth, err := sdk.AccAddressFromBech32(msg.Authority)
+	if err != nil {
+		panic(err)
+	}
+	return []sdk.AccAddress{auth}
+}
+
+func (msg *MsgRegisterProvider) GetSignBytes() []byte {
+	bz := AminoCdc.MustMarshalJSON(msg)
+	return sdk.MustSortJSON(bz)
+}
+
+func (msg *MsgRegisterProvider) ValidateBasic() error {
+	if _, err := sdk.AccAddressFromBech32(msg.Authority); err != nil {
+		return errors.Wrapf(sdkerrors.ErrInvalidAddress, "invalid authority address (%s)", msg.Authority)
+	}
+	if msg.Provider == "" {
+		return errors.Wrap(sdkerrors.ErrInvalidRequest, "provider cannot be empty")
+	}
+	if len(msg.Relayers) == 0 {
+		return errors.Wrap(sdkerrors.ErrInvalidRequest, "relayers cannot be empty")
+	}
+	for _, r := range msg.Relayers {
+		if _, err := sdk.AccAddressFromBech32(r); err != nil {
+			return errors.Wrapf(sdkerrors.ErrInvalidAddress, "invalid relayer address (%s)", r)
+		}
+	}
+	return nil
+}
+
+// -------------------------------------------------------------------------
+// MsgUpdateProvider
+// -------------------------------------------------------------------------
+
+func (msg *MsgUpdateProvider) Route() string { return ModuleName }
+func (msg *MsgUpdateProvider) Type() string  { return "update_provider" }
+
+func (msg *MsgUpdateProvider) GetSigners() []sdk.AccAddress {
+	auth, err := sdk.AccAddressFromBech32(msg.Authority)
+	if err != nil {
+		panic(err)
+	}
+	return []sdk.AccAddress{auth}
+}
+
+func (msg *MsgUpdateProvider) GetSignBytes() []byte {
+	bz := AminoCdc.MustMarshalJSON(msg)
+	return sdk.MustSortJSON(bz)
+}
+
+func (msg *MsgUpdateProvider) ValidateBasic() error {
+	if _, err := sdk.AccAddressFromBech32(msg.Authority); err != nil {
+		return errors.Wrapf(sdkerrors.ErrInvalidAddress, "invalid authority address (%s)", msg.Authority)
+	}
+	if msg.Provider == "" {
+		return errors.Wrap(sdkerrors.ErrInvalidRequest, "provider cannot be empty")
+	}
+	for _, r := range msg.Relayers {
+		if _, err := sdk.AccAddressFromBech32(r); err != nil {
+			return errors.Wrapf(sdkerrors.ErrInvalidAddress, "invalid relayer address (%s)", r)
+		}
+	}
 	return nil
 }

@@ -25,6 +25,18 @@ type Keeper struct {
 	// ✅ Prices Map: Key = Asset (string), Value = Price (Object)
 	Prices collections.Map[string, types.Price]
 
+	// Provider info keyed by provider name
+	Providers collections.Map[string, types.ProviderInfo]
+
+	// Provider specific prices: key = (provider, symbol)
+	ProviderPrices collections.Map[collections.Pair[string, string], types.Price]
+
+	// Validator specific prices: key = (validator, asset)
+	ValidatorPrices collections.Map[collections.Pair[string, string], types.ValidatorPrice]
+
+	// Oracle metadata keyed by symbol
+	OracleInfos collections.Map[string, types.OracleInfo]
+
 	authority string
 }
 
@@ -56,6 +68,34 @@ func NewKeeper(
 			"prices",                          // Name
 			collections.StringKey,             // Key Type
 			codec.CollValue[types.Price](cdc), // Value Type
+		),
+
+		Providers: collections.NewMap(sb,
+			collections.NewPrefix(2),
+			"providers",
+			collections.StringKey,
+			codec.CollValue[types.ProviderInfo](cdc),
+		),
+
+		ProviderPrices: collections.NewMap(sb,
+			collections.NewPrefix(3),
+			"provider_prices",
+			collections.PairKeyCodec(collections.StringKey, collections.StringKey),
+			codec.CollValue[types.Price](cdc),
+		),
+
+		ValidatorPrices: collections.NewMap(sb,
+			collections.NewPrefix(4),
+			"validator_prices",
+			collections.PairKeyCodec(collections.StringKey, collections.StringKey),
+			codec.CollValue[types.ValidatorPrice](cdc),
+		),
+
+		OracleInfos: collections.NewMap(sb,
+			collections.NewPrefix(5),
+			"oracle_infos",
+			collections.StringKey,
+			codec.CollValue[types.OracleInfo](cdc),
 		),
 
 		authority: authority,
@@ -98,6 +138,24 @@ func (k *Keeper) InitGenesis(ctx context.Context, data *types.GenesisState) erro
 		}
 	}
 
+	for _, provider := range data.Providers {
+		if err := k.Providers.Set(ctx, provider.Provider, provider); err != nil {
+			return err
+		}
+	}
+
+	for _, vp := range data.ValidatorPrices {
+		if err := k.ValidatorPrices.Set(ctx, collections.Join(vp.Validator, vp.Asset), vp); err != nil {
+			return err
+		}
+	}
+
+	for _, oi := range data.OracleInfos {
+		if err := k.OracleInfos.Set(ctx, oi.Symbol, oi); err != nil {
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -115,8 +173,29 @@ func (k *Keeper) ExportGenesis(ctx context.Context) *types.GenesisState {
 		return false, nil
 	})
 
+	var providers []types.ProviderInfo
+	k.Providers.Walk(ctx, nil, func(key string, value types.ProviderInfo) (bool, error) {
+		providers = append(providers, value)
+		return false, nil
+	})
+
+	var validatorPrices []types.ValidatorPrice
+	k.ValidatorPrices.Walk(ctx, nil, func(key collections.Pair[string, string], value types.ValidatorPrice) (bool, error) {
+		validatorPrices = append(validatorPrices, value)
+		return false, nil
+	})
+
+	var oracleInfos []types.OracleInfo
+	k.OracleInfos.Walk(ctx, nil, func(key string, value types.OracleInfo) (bool, error) {
+		oracleInfos = append(oracleInfos, value)
+		return false, nil
+	})
+
 	return &types.GenesisState{
-		Params: params,
-		Prices: prices,
+		Params:          params,
+		Prices:          prices,
+		Providers:       providers,
+		ValidatorPrices: validatorPrices,
+		OracleInfos:     oracleInfos,
 	}
 }

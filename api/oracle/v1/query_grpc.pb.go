@@ -19,8 +19,13 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	Query_Params_FullMethodName   = "/oracle.v1.Query/Params"
-	Query_GetPrice_FullMethodName = "/oracle.v1.Query/GetPrice"
+	Query_Params_FullMethodName               = "/oracle.v1.Query/Params"
+	Query_GetPrice_FullMethodName             = "/oracle.v1.Query/GetPrice"
+	Query_GetProviderPrice_FullMethodName     = "/oracle.v1.Query/GetProviderPrice"
+	Query_GetAllProviderPrices_FullMethodName = "/oracle.v1.Query/GetAllProviderPrices"
+	Query_GetProvider_FullMethodName          = "/oracle.v1.Query/GetProvider"
+	Query_GetAllProviders_FullMethodName      = "/oracle.v1.Query/GetAllProviders"
+	Query_GetOracleInfo_FullMethodName        = "/oracle.v1.Query/GetOracleInfo"
 )
 
 // QueryClient is the client API for Query service.
@@ -31,6 +36,16 @@ type QueryClient interface {
 	Params(ctx context.Context, in *QueryParamsRequest, opts ...grpc.CallOption) (*QueryParamsResponse, error)
 	// GetPrice returns the price of a specific asset
 	GetPrice(ctx context.Context, in *QueryGetPriceRequest, opts ...grpc.CallOption) (*QueryGetPriceResponse, error)
+	// GetProviderPrice returns price from a specific provider
+	GetProviderPrice(ctx context.Context, in *QueryGetProviderPriceRequest, opts ...grpc.CallOption) (*QueryGetProviderPriceResponse, error)
+	// GetAllProviderPrices returns all prices from a specific provider
+	GetAllProviderPrices(ctx context.Context, in *QueryGetAllProviderPricesRequest, opts ...grpc.CallOption) (*QueryGetAllProviderPricesResponse, error)
+	// GetProvider returns information about a registered provider
+	GetProvider(ctx context.Context, in *QueryGetProviderRequest, opts ...grpc.CallOption) (*QueryGetProviderResponse, error)
+	// GetAllProviders returns all registered providers
+	GetAllProviders(ctx context.Context, in *QueryGetAllProvidersRequest, opts ...grpc.CallOption) (*QueryGetAllProvidersResponse, error)
+	// GetOracleInfo returns oracle metadata for a symbol
+	GetOracleInfo(ctx context.Context, in *QueryGetOracleInfoRequest, opts ...grpc.CallOption) (*QueryGetOracleInfoResponse, error)
 }
 
 type queryClient struct {
@@ -59,6 +74,51 @@ func (c *queryClient) GetPrice(ctx context.Context, in *QueryGetPriceRequest, op
 	return out, nil
 }
 
+func (c *queryClient) GetProviderPrice(ctx context.Context, in *QueryGetProviderPriceRequest, opts ...grpc.CallOption) (*QueryGetProviderPriceResponse, error) {
+	out := new(QueryGetProviderPriceResponse)
+	err := c.cc.Invoke(ctx, Query_GetProviderPrice_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) GetAllProviderPrices(ctx context.Context, in *QueryGetAllProviderPricesRequest, opts ...grpc.CallOption) (*QueryGetAllProviderPricesResponse, error) {
+	out := new(QueryGetAllProviderPricesResponse)
+	err := c.cc.Invoke(ctx, Query_GetAllProviderPrices_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) GetProvider(ctx context.Context, in *QueryGetProviderRequest, opts ...grpc.CallOption) (*QueryGetProviderResponse, error) {
+	out := new(QueryGetProviderResponse)
+	err := c.cc.Invoke(ctx, Query_GetProvider_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) GetAllProviders(ctx context.Context, in *QueryGetAllProvidersRequest, opts ...grpc.CallOption) (*QueryGetAllProvidersResponse, error) {
+	out := new(QueryGetAllProvidersResponse)
+	err := c.cc.Invoke(ctx, Query_GetAllProviders_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) GetOracleInfo(ctx context.Context, in *QueryGetOracleInfoRequest, opts ...grpc.CallOption) (*QueryGetOracleInfoResponse, error) {
+	out := new(QueryGetOracleInfoResponse)
+	err := c.cc.Invoke(ctx, Query_GetOracleInfo_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // QueryServer is the server API for Query service.
 // All implementations must embed UnimplementedQueryServer
 // for forward compatibility
@@ -67,6 +127,16 @@ type QueryServer interface {
 	Params(context.Context, *QueryParamsRequest) (*QueryParamsResponse, error)
 	// GetPrice returns the price of a specific asset
 	GetPrice(context.Context, *QueryGetPriceRequest) (*QueryGetPriceResponse, error)
+	// GetProviderPrice returns price from a specific provider
+	GetProviderPrice(context.Context, *QueryGetProviderPriceRequest) (*QueryGetProviderPriceResponse, error)
+	// GetAllProviderPrices returns all prices from a specific provider
+	GetAllProviderPrices(context.Context, *QueryGetAllProviderPricesRequest) (*QueryGetAllProviderPricesResponse, error)
+	// GetProvider returns information about a registered provider
+	GetProvider(context.Context, *QueryGetProviderRequest) (*QueryGetProviderResponse, error)
+	// GetAllProviders returns all registered providers
+	GetAllProviders(context.Context, *QueryGetAllProvidersRequest) (*QueryGetAllProvidersResponse, error)
+	// GetOracleInfo returns oracle metadata for a symbol
+	GetOracleInfo(context.Context, *QueryGetOracleInfoRequest) (*QueryGetOracleInfoResponse, error)
 	mustEmbedUnimplementedQueryServer()
 }
 
@@ -79,6 +149,21 @@ func (UnimplementedQueryServer) Params(context.Context, *QueryParamsRequest) (*Q
 }
 func (UnimplementedQueryServer) GetPrice(context.Context, *QueryGetPriceRequest) (*QueryGetPriceResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPrice not implemented")
+}
+func (UnimplementedQueryServer) GetProviderPrice(context.Context, *QueryGetProviderPriceRequest) (*QueryGetProviderPriceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetProviderPrice not implemented")
+}
+func (UnimplementedQueryServer) GetAllProviderPrices(context.Context, *QueryGetAllProviderPricesRequest) (*QueryGetAllProviderPricesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllProviderPrices not implemented")
+}
+func (UnimplementedQueryServer) GetProvider(context.Context, *QueryGetProviderRequest) (*QueryGetProviderResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetProvider not implemented")
+}
+func (UnimplementedQueryServer) GetAllProviders(context.Context, *QueryGetAllProvidersRequest) (*QueryGetAllProvidersResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllProviders not implemented")
+}
+func (UnimplementedQueryServer) GetOracleInfo(context.Context, *QueryGetOracleInfoRequest) (*QueryGetOracleInfoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetOracleInfo not implemented")
 }
 func (UnimplementedQueryServer) mustEmbedUnimplementedQueryServer() {}
 
@@ -129,6 +214,96 @@ func _Query_GetPrice_Handler(srv interface{}, ctx context.Context, dec func(inte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Query_GetProviderPrice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryGetProviderPriceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).GetProviderPrice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Query_GetProviderPrice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).GetProviderPrice(ctx, req.(*QueryGetProviderPriceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_GetAllProviderPrices_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryGetAllProviderPricesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).GetAllProviderPrices(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Query_GetAllProviderPrices_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).GetAllProviderPrices(ctx, req.(*QueryGetAllProviderPricesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_GetProvider_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryGetProviderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).GetProvider(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Query_GetProvider_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).GetProvider(ctx, req.(*QueryGetProviderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_GetAllProviders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryGetAllProvidersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).GetAllProviders(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Query_GetAllProviders_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).GetAllProviders(ctx, req.(*QueryGetAllProvidersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_GetOracleInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryGetOracleInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).GetOracleInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Query_GetOracleInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).GetOracleInfo(ctx, req.(*QueryGetOracleInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Query_ServiceDesc is the grpc.ServiceDesc for Query service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -143,6 +318,26 @@ var Query_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetPrice",
 			Handler:    _Query_GetPrice_Handler,
+		},
+		{
+			MethodName: "GetProviderPrice",
+			Handler:    _Query_GetProviderPrice_Handler,
+		},
+		{
+			MethodName: "GetAllProviderPrices",
+			Handler:    _Query_GetAllProviderPrices_Handler,
+		},
+		{
+			MethodName: "GetProvider",
+			Handler:    _Query_GetProvider_Handler,
+		},
+		{
+			MethodName: "GetAllProviders",
+			Handler:    _Query_GetAllProviders_Handler,
+		},
+		{
+			MethodName: "GetOracleInfo",
+			Handler:    _Query_GetOracleInfo_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

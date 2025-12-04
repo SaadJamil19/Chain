@@ -30,6 +30,12 @@ type GenesisState struct {
 	Params Params `protobuf:"bytes,1,opt,name=params,proto3" json:"params"`
 	// List of prices to initialize the store with
 	Prices []Price `protobuf:"bytes,2,rep,name=prices,proto3" json:"prices"`
+	// List of registered providers
+	Providers []ProviderInfo `protobuf:"bytes,3,rep,name=providers,proto3" json:"providers"`
+	// List of validator price submissions
+	ValidatorPrices []ValidatorPrice `protobuf:"bytes,4,rep,name=validator_prices,json=validatorPrices,proto3" json:"validator_prices"`
+	// List of oracle metadata
+	OracleInfos []OracleInfo `protobuf:"bytes,5,rep,name=oracle_infos,json=oracleInfos,proto3" json:"oracle_infos"`
 }
 
 func (m *GenesisState) Reset()         { *m = GenesisState{} }
@@ -79,8 +85,35 @@ func (m *GenesisState) GetPrices() []Price {
 	return nil
 }
 
+func (m *GenesisState) GetProviders() []ProviderInfo {
+	if m != nil {
+		return m.Providers
+	}
+	return nil
+}
+
+func (m *GenesisState) GetValidatorPrices() []ValidatorPrice {
+	if m != nil {
+		return m.ValidatorPrices
+	}
+	return nil
+}
+
+func (m *GenesisState) GetOracleInfos() []OracleInfo {
+	if m != nil {
+		return m.OracleInfos
+	}
+	return nil
+}
+
 // Params defines the set of module parameters.
 type Params struct {
+	// Minimum number of validators required for median calculation
+	MinValidatorsForMedian uint32 `protobuf:"varint,1,opt,name=min_validators_for_median,json=minValidatorsForMedian,proto3" json:"min_validators_for_median,omitempty"`
+	// Maximum age of price before considered stale (in seconds)
+	MaxPriceAge int64 `protobuf:"varint,2,opt,name=max_price_age,json=maxPriceAge,proto3" json:"max_price_age,omitempty"`
+	// Whether to allow negative one (-1) settlement prices
+	AllowNegativeSettlement bool `protobuf:"varint,3,opt,name=allow_negative_settlement,json=allowNegativeSettlement,proto3" json:"allow_negative_settlement,omitempty"`
 }
 
 func (m *Params) Reset()      { *m = Params{} }
@@ -115,6 +148,27 @@ func (m *Params) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_Params proto.InternalMessageInfo
 
+func (m *Params) GetMinValidatorsForMedian() uint32 {
+	if m != nil {
+		return m.MinValidatorsForMedian
+	}
+	return 0
+}
+
+func (m *Params) GetMaxPriceAge() int64 {
+	if m != nil {
+		return m.MaxPriceAge
+	}
+	return 0
+}
+
+func (m *Params) GetAllowNegativeSettlement() bool {
+	if m != nil {
+		return m.AllowNegativeSettlement
+	}
+	return false
+}
+
 func init() {
 	proto.RegisterType((*GenesisState)(nil), "oracle.v1.GenesisState")
 	proto.RegisterType((*Params)(nil), "oracle.v1.Params")
@@ -123,23 +177,35 @@ func init() {
 func init() { proto.RegisterFile("oracle/v1/genesis.proto", fileDescriptor_14b982a0a6345d1d) }
 
 var fileDescriptor_14b982a0a6345d1d = []byte{
-	// 254 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0xcf, 0x2f, 0x4a, 0x4c,
-	0xce, 0x49, 0xd5, 0x2f, 0x33, 0xd4, 0x4f, 0x4f, 0xcd, 0x4b, 0x2d, 0xce, 0x2c, 0xd6, 0x2b, 0x28,
-	0xca, 0x2f, 0xc9, 0x17, 0xe2, 0x84, 0x48, 0xe8, 0x95, 0x19, 0x4a, 0x89, 0xa4, 0xe7, 0xa7, 0xe7,
-	0x83, 0x45, 0xf5, 0x41, 0x2c, 0x88, 0x02, 0x29, 0xc1, 0xc4, 0xdc, 0xcc, 0xbc, 0x7c, 0x7d, 0x30,
-	0x09, 0x15, 0x12, 0x45, 0x18, 0x56, 0x5c, 0x92, 0x58, 0x92, 0x0a, 0x11, 0x56, 0xca, 0xe7, 0xe2,
-	0x71, 0x87, 0x98, 0x1d, 0x0c, 0x12, 0x15, 0xd2, 0xe7, 0x62, 0x2b, 0x48, 0x2c, 0x4a, 0xcc, 0x2d,
-	0x96, 0x60, 0x54, 0x60, 0xd4, 0xe0, 0x36, 0x12, 0xd4, 0x83, 0xdb, 0xa5, 0x17, 0x00, 0x96, 0x70,
-	0x62, 0x39, 0x71, 0x4f, 0x9e, 0x21, 0x08, 0xaa, 0x4c, 0x48, 0x8f, 0x8b, 0xad, 0xa0, 0x28, 0x33,
-	0x39, 0xb5, 0x58, 0x82, 0x49, 0x81, 0x59, 0x83, 0xdb, 0x48, 0x00, 0x59, 0x03, 0x48, 0x02, 0xae,
-	0x1e, 0xac, 0x4a, 0x49, 0x85, 0x8b, 0x0d, 0x62, 0x8e, 0x95, 0xd4, 0x8c, 0x05, 0xf2, 0x0c, 0x2f,
-	0x16, 0xc8, 0x33, 0x76, 0x3d, 0xdf, 0xa0, 0xc5, 0x0b, 0x75, 0x1e, 0xc4, 0x54, 0x27, 0x8f, 0x13,
-	0x8f, 0xe4, 0x18, 0x2f, 0x3c, 0x92, 0x63, 0x7c, 0xf0, 0x48, 0x8e, 0x71, 0xc2, 0x63, 0x39, 0x86,
-	0x0b, 0x8f, 0xe5, 0x18, 0x6e, 0x3c, 0x96, 0x63, 0x88, 0xd2, 0x4b, 0xcf, 0x2c, 0xc9, 0x28, 0x4d,
-	0xd2, 0x4b, 0xce, 0xcf, 0xd5, 0x2f, 0xca, 0xcf, 0xc9, 0x49, 0xce, 0x48, 0xcc, 0xcc, 0x2b, 0x46,
-	0x30, 0xf5, 0x2b, 0xf4, 0xa1, 0x46, 0x95, 0x54, 0x16, 0xa4, 0x16, 0x27, 0xb1, 0x81, 0xfd, 0x69,
-	0x0c, 0x08, 0x00, 0x00, 0xff, 0xff, 0x8e, 0x5d, 0x65, 0x69, 0x4d, 0x01, 0x00, 0x00,
+	// 445 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x54, 0x52, 0x3d, 0x6f, 0x13, 0x31,
+	0x18, 0x3e, 0x27, 0x25, 0xa2, 0x4e, 0x23, 0x5a, 0x8b, 0x92, 0x4b, 0x86, 0x4b, 0x94, 0x29, 0x62,
+	0xb8, 0x53, 0xcb, 0x44, 0x91, 0x90, 0xe8, 0xc0, 0x97, 0xc4, 0x87, 0x52, 0x89, 0x81, 0xc5, 0x72,
+	0x2f, 0xce, 0xd5, 0xd2, 0xd9, 0xef, 0xc9, 0x36, 0x47, 0xf8, 0x0b, 0x4c, 0x8c, 0x8c, 0xfd, 0x09,
+	0x8c, 0x6c, 0xac, 0x1d, 0x3b, 0x32, 0x21, 0x94, 0x0c, 0xf0, 0x33, 0x50, 0xec, 0xe3, 0x72, 0x5d,
+	0x4e, 0xaf, 0x9e, 0xcf, 0xf7, 0x6c, 0xe3, 0x3e, 0x68, 0x96, 0xe6, 0x3c, 0x29, 0x8f, 0x92, 0x8c,
+	0x2b, 0x6e, 0x84, 0x89, 0x0b, 0x0d, 0x16, 0xc8, 0xae, 0x27, 0xe2, 0xf2, 0x68, 0x78, 0x37, 0x83,
+	0x0c, 0x1c, 0x9a, 0x6c, 0x26, 0x2f, 0x18, 0x1e, 0x30, 0x29, 0x14, 0x24, 0xee, 0x5b, 0x41, 0x87,
+	0xdb, 0x30, 0x63, 0x99, 0xe5, 0x1e, 0x9e, 0x7c, 0x6f, 0xe1, 0xbd, 0x67, 0x3e, 0xfc, 0x6c, 0x03,
+	0x93, 0x04, 0x77, 0x0a, 0xa6, 0x99, 0x34, 0x21, 0x1a, 0xa3, 0x69, 0xf7, 0xf8, 0x20, 0xae, 0xcb,
+	0xe2, 0xb7, 0x8e, 0x38, 0xdd, 0xb9, 0xfa, 0x35, 0x0a, 0x66, 0x95, 0x8c, 0xc4, 0xb8, 0x53, 0x68,
+	0x91, 0x72, 0x13, 0xb6, 0xc6, 0xed, 0x69, 0xf7, 0x78, 0xbf, 0x69, 0xd8, 0x10, 0xb5, 0xde, 0xa9,
+	0xc8, 0x23, 0xbc, 0x5b, 0x68, 0x28, 0xc5, 0x9c, 0x6b, 0x13, 0xb6, 0x9d, 0xa5, 0x7f, 0xc3, 0xe2,
+	0xb9, 0x17, 0x6a, 0x01, 0x95, 0x73, 0xab, 0x27, 0x2f, 0xf1, 0x7e, 0xc9, 0x72, 0x31, 0x67, 0x16,
+	0x34, 0xad, 0x6a, 0x77, 0x5c, 0xc6, 0xa0, 0x91, 0xf1, 0xee, 0xbf, 0xa4, 0xd9, 0x7f, 0xa7, 0xbc,
+	0x81, 0x1a, 0xf2, 0x18, 0xef, 0x79, 0x0b, 0x15, 0x6a, 0x01, 0x26, 0xbc, 0xe5, 0x72, 0x0e, 0x1b,
+	0x39, 0x6f, 0xdc, 0xd4, 0xd8, 0xa4, 0x0b, 0x35, 0x62, 0x26, 0x3f, 0x10, 0xee, 0xf8, 0x13, 0x21,
+	0x0f, 0xf1, 0x40, 0x0a, 0x45, 0xeb, 0x06, 0x43, 0x17, 0xa0, 0xa9, 0xe4, 0x73, 0xc1, 0x94, 0x3b,
+	0xc7, 0xde, 0xec, 0x9e, 0x14, 0xaa, 0xde, 0xcb, 0x3c, 0x05, 0xfd, 0xca, 0xb1, 0x64, 0x82, 0x7b,
+	0x92, 0x2d, 0xfd, 0xbf, 0x50, 0x96, 0xf1, 0xb0, 0x35, 0x46, 0xd3, 0xf6, 0xac, 0x2b, 0xd9, 0xd2,
+	0xed, 0xf9, 0x24, 0xe3, 0xe4, 0x04, 0x0f, 0x58, 0x9e, 0xc3, 0x47, 0xaa, 0x78, 0xc6, 0xac, 0x28,
+	0x39, 0x35, 0xdc, 0xda, 0x9c, 0x4b, 0xae, 0x6c, 0xd8, 0x1e, 0xa3, 0xe9, 0xed, 0x59, 0xdf, 0x09,
+	0x5e, 0x57, 0xfc, 0x59, 0x4d, 0x9f, 0x0c, 0xbf, 0x5e, 0x8e, 0x82, 0xbf, 0x97, 0x23, 0xf4, 0xf9,
+	0xcf, 0xb7, 0xfb, 0xbd, 0xea, 0x11, 0xf8, 0xab, 0x3b, 0x7d, 0x7e, 0xb5, 0x8a, 0xd0, 0xf5, 0x2a,
+	0x42, 0xbf, 0x57, 0x11, 0xfa, 0xb2, 0x8e, 0x82, 0xeb, 0x75, 0x14, 0xfc, 0x5c, 0x47, 0xc1, 0xfb,
+	0x38, 0x13, 0xf6, 0xe2, 0xc3, 0x79, 0x9c, 0x82, 0x4c, 0x34, 0xe4, 0x79, 0x7a, 0xc1, 0x84, 0x32,
+	0xdb, 0x31, 0x59, 0x26, 0x55, 0x94, 0xfd, 0x54, 0x70, 0x73, 0xde, 0x71, 0xaf, 0xe9, 0xc1, 0xbf,
+	0x00, 0x00, 0x00, 0xff, 0xff, 0xf9, 0xb1, 0x92, 0xec, 0xb3, 0x02, 0x00, 0x00,
 }
 
 func (this *Params) Equal(that interface{}) bool {
@@ -159,6 +225,15 @@ func (this *Params) Equal(that interface{}) bool {
 	if that1 == nil {
 		return this == nil
 	} else if this == nil {
+		return false
+	}
+	if this.MinValidatorsForMedian != that1.MinValidatorsForMedian {
+		return false
+	}
+	if this.MaxPriceAge != that1.MaxPriceAge {
+		return false
+	}
+	if this.AllowNegativeSettlement != that1.AllowNegativeSettlement {
 		return false
 	}
 	return true
@@ -183,6 +258,48 @@ func (m *GenesisState) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
+	if len(m.OracleInfos) > 0 {
+		for iNdEx := len(m.OracleInfos) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.OracleInfos[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintGenesis(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0x2a
+		}
+	}
+	if len(m.ValidatorPrices) > 0 {
+		for iNdEx := len(m.ValidatorPrices) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.ValidatorPrices[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintGenesis(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0x22
+		}
+	}
+	if len(m.Providers) > 0 {
+		for iNdEx := len(m.Providers) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.Providers[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintGenesis(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0x1a
+		}
+	}
 	if len(m.Prices) > 0 {
 		for iNdEx := len(m.Prices) - 1; iNdEx >= 0; iNdEx-- {
 			{
@@ -230,6 +347,26 @@ func (m *Params) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
+	if m.AllowNegativeSettlement {
+		i--
+		if m.AllowNegativeSettlement {
+			dAtA[i] = 1
+		} else {
+			dAtA[i] = 0
+		}
+		i--
+		dAtA[i] = 0x18
+	}
+	if m.MaxPriceAge != 0 {
+		i = encodeVarintGenesis(dAtA, i, uint64(m.MaxPriceAge))
+		i--
+		dAtA[i] = 0x10
+	}
+	if m.MinValidatorsForMedian != 0 {
+		i = encodeVarintGenesis(dAtA, i, uint64(m.MinValidatorsForMedian))
+		i--
+		dAtA[i] = 0x8
+	}
 	return len(dAtA) - i, nil
 }
 
@@ -258,6 +395,24 @@ func (m *GenesisState) Size() (n int) {
 			n += 1 + l + sovGenesis(uint64(l))
 		}
 	}
+	if len(m.Providers) > 0 {
+		for _, e := range m.Providers {
+			l = e.Size()
+			n += 1 + l + sovGenesis(uint64(l))
+		}
+	}
+	if len(m.ValidatorPrices) > 0 {
+		for _, e := range m.ValidatorPrices {
+			l = e.Size()
+			n += 1 + l + sovGenesis(uint64(l))
+		}
+	}
+	if len(m.OracleInfos) > 0 {
+		for _, e := range m.OracleInfos {
+			l = e.Size()
+			n += 1 + l + sovGenesis(uint64(l))
+		}
+	}
 	return n
 }
 
@@ -267,6 +422,15 @@ func (m *Params) Size() (n int) {
 	}
 	var l int
 	_ = l
+	if m.MinValidatorsForMedian != 0 {
+		n += 1 + sovGenesis(uint64(m.MinValidatorsForMedian))
+	}
+	if m.MaxPriceAge != 0 {
+		n += 1 + sovGenesis(uint64(m.MaxPriceAge))
+	}
+	if m.AllowNegativeSettlement {
+		n += 2
+	}
 	return n
 }
 
@@ -372,6 +536,108 @@ func (m *GenesisState) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Providers", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGenesis
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthGenesis
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthGenesis
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Providers = append(m.Providers, ProviderInfo{})
+			if err := m.Providers[len(m.Providers)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 4:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ValidatorPrices", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGenesis
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthGenesis
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthGenesis
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.ValidatorPrices = append(m.ValidatorPrices, ValidatorPrice{})
+			if err := m.ValidatorPrices[len(m.ValidatorPrices)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 5:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field OracleInfos", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGenesis
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthGenesis
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthGenesis
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.OracleInfos = append(m.OracleInfos, OracleInfo{})
+			if err := m.OracleInfos[len(m.OracleInfos)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
 			skippy, err := skipGenesis(dAtA[iNdEx:])
@@ -422,6 +688,64 @@ func (m *Params) Unmarshal(dAtA []byte) error {
 			return fmt.Errorf("proto: Params: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field MinValidatorsForMedian", wireType)
+			}
+			m.MinValidatorsForMedian = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGenesis
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.MinValidatorsForMedian |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field MaxPriceAge", wireType)
+			}
+			m.MaxPriceAge = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGenesis
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.MaxPriceAge |= int64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 3:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field AllowNegativeSettlement", wireType)
+			}
+			var v int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGenesis
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				v |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			m.AllowNegativeSettlement = bool(v != 0)
 		default:
 			iNdEx = preIndex
 			skippy, err := skipGenesis(dAtA[iNdEx:])

@@ -3,7 +3,7 @@ package oracle.v1;
 
 import "gogoproto/gogo.proto";
 import "amino/amino.proto";
-import "oracle/v1/state.proto"; // Import the Price object
+import "oracle/v1/state.proto";
 
 option go_package = "github.com/rollchains/rollchain/x/oracle/types";
 
@@ -14,6 +14,15 @@ message GenesisState {
   
   // List of prices to initialize the store with
   repeated Price prices = 2 [(gogoproto.nullable) = false];
+
+  // List of registered providers
+  repeated ProviderInfo providers = 3 [(gogoproto.nullable) = false];
+
+  // List of validator price submissions
+  repeated ValidatorPrice validator_prices = 4 [(gogoproto.nullable) = false];
+
+  // List of oracle metadata
+  repeated OracleInfo oracle_infos = 5 [(gogoproto.nullable) = false];
 }
 
 // Params defines the set of module parameters.
@@ -21,4 +30,13 @@ message Params {
   option (amino.name) = "oracle/params";
   option (gogoproto.equal) = true;
   option (gogoproto.goproto_stringer) = false;
+
+  // Minimum number of validators required for median calculation
+  uint32 min_validators_for_median = 1;
+
+  // Maximum age of price before considered stale (in seconds)
+  int64 max_price_age = 2;
+
+  // Whether to allow negative one (-1) settlement prices
+  bool allow_negative_settlement = 3;
 }
