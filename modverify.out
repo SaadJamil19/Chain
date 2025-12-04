@@ -1,0 +1,4 @@
+bash: /root/.bash_profile: Permission denied
+GOMODCACHE=/home/asim/go/pkg/mod
+--- go mod verify output ---
+github.com/CosmWasm/wasmd v0.50.0: dir has been modified (/home/asim/go/pkg/mod/github.com/!cosm!wasm/wasmd@v0.50.0)

@@ -1,0 +1,17 @@
+syntax = "proto3";
+package oracle.v1;
+
+import "gogoproto/gogo.proto";
+import "cosmos_proto/cosmos.proto";
+
+option go_package = "github.com/rollchains/rollchain/x/oracle/types";
+
+// Price defines the structure for a stored asset price
+message Price {
+  string asset = 1;      // e.g. "BTC"
+  string price = 2 [
+    (cosmos_proto.scalar) = "cosmos.Dec"
+  ];
+  string source = 3;     // Address of the oracle/validator
+  uint64 timestamp = 4;  // Block timestamp when updated
+}
