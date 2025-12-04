@@ -1,0 +1,41 @@
+syntax = "proto3";
+package oracle.v1;
+
+import "google/api/annotations.proto";
+import "oracle/v1/genesis.proto";
+import "oracle/v1/state.proto"; // Import Price
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/rollchains/rollchain/x/oracle/types";
+
+// Query provides defines the gRPC querier service.
+service Query {
+  // Params queries all parameters of the module.
+  rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
+    option (google.api.http).get = "/oracle/v1/params";
+  }
+
+  // GetPrice returns the price of a specific asset
+  rpc GetPrice(QueryGetPriceRequest) returns (QueryGetPriceResponse) {
+    option (google.api.http).get = "/oracle/v1/price/{asset}";
+  }
+}
+
+// QueryParamsRequest is the request type for the Query/Params RPC method.
+message QueryParamsRequest {}
+
+// QueryParamsResponse is the response type for the Query/Params RPC method.
+message QueryParamsResponse {
+  // params defines the parameters of the module.
+  Params params = 1 [(gogoproto.nullable) = false];
+}
+
+// QueryGetPriceRequest is the request type for the Query/GetPrice RPC method.
+message QueryGetPriceRequest {
+  string asset = 1;
+}
+
+// QueryGetPriceResponse is the response type for the Query/GetPrice RPC method.
+message QueryGetPriceResponse {
+  Price price = 1 [(gogoproto.nullable) = false];
+}

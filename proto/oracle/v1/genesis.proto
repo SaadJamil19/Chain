@@ -1,0 +1,24 @@
+syntax = "proto3";
+package oracle.v1;
+
+import "gogoproto/gogo.proto";
+import "amino/amino.proto";
+import "oracle/v1/state.proto"; // Import the Price object
+
+option go_package = "github.com/rollchains/rollchain/x/oracle/types";
+
+// GenesisState defines the module genesis state
+message GenesisState {
+  // Params defines all the parameters of the module.
+  Params params = 1 [(gogoproto.nullable) = false];
+  
+  // List of prices to initialize the store with
+  repeated Price prices = 2 [(gogoproto.nullable) = false];
+}
+
+// Params defines the set of module parameters.
+message Params {
+  option (amino.name) = "oracle/params";
+  option (gogoproto.equal) = true;
+  option (gogoproto.goproto_stringer) = false;
+}
