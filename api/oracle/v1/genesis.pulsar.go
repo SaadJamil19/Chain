@@ -65,10 +65,166 @@ func (x *_GenesisState_2_list) IsValid() bool {
 	return x.list != nil
 }
 
+var _ protoreflect.List = (*_GenesisState_3_list)(nil)
+
+type _GenesisState_3_list struct {
+	list *[]*ProviderInfo
+}
+
+func (x *_GenesisState_3_list) Len() int {
+	if x.list == nil {
+		return 0
+	}
+	return len(*x.list)
+}
+
+func (x *_GenesisState_3_list) Get(i int) protoreflect.Value {
+	return protoreflect.ValueOfMessage((*x.list)[i].ProtoReflect())
+}
+
+func (x *_GenesisState_3_list) Set(i int, value protoreflect.Value) {
+	valueUnwrapped := value.Message()
+	concreteValue := valueUnwrapped.Interface().(*ProviderInfo)
+	(*x.list)[i] = concreteValue
+}
+
+func (x *_GenesisState_3_list) Append(value protoreflect.Value) {
+	valueUnwrapped := value.Message()
+	concreteValue := valueUnwrapped.Interface().(*ProviderInfo)
+	*x.list = append(*x.list, concreteValue)
+}
+
+func (x *_GenesisState_3_list) AppendMutable() protoreflect.Value {
+	v := new(ProviderInfo)
+	*x.list = append(*x.list, v)
+	return protoreflect.ValueOfMessage(v.ProtoReflect())
+}
+
+func (x *_GenesisState_3_list) Truncate(n int) {
+	for i := n; i < len(*x.list); i++ {
+		(*x.list)[i] = nil
+	}
+	*x.list = (*x.list)[:n]
+}
+
+func (x *_GenesisState_3_list) NewElement() protoreflect.Value {
+	v := new(ProviderInfo)
+	return protoreflect.ValueOfMessage(v.ProtoReflect())
+}
+
+func (x *_GenesisState_3_list) IsValid() bool {
+	return x.list != nil
+}
+
+var _ protoreflect.List = (*_GenesisState_4_list)(nil)
+
+type _GenesisState_4_list struct {
+	list *[]*ValidatorPrice
+}
+
+func (x *_GenesisState_4_list) Len() int {
+	if x.list == nil {
+		return 0
+	}
+	return len(*x.list)
+}
+
+func (x *_GenesisState_4_list) Get(i int) protoreflect.Value {
+	return protoreflect.ValueOfMessage((*x.list)[i].ProtoReflect())
+}
+
+func (x *_GenesisState_4_list) Set(i int, value protoreflect.Value) {
+	valueUnwrapped := value.Message()
+	concreteValue := valueUnwrapped.Interface().(*ValidatorPrice)
+	(*x.list)[i] = concreteValue
+}
+
+func (x *_GenesisState_4_list) Append(value protoreflect.Value) {
+	valueUnwrapped := value.Message()
+	concreteValue := valueUnwrapped.Interface().(*ValidatorPrice)
+	*x.list = append(*x.list, concreteValue)
+}
+
+func (x *_GenesisState_4_list) AppendMutable() protoreflect.Value {
+	v := new(ValidatorPrice)
+	*x.list = append(*x.list, v)
+	return protoreflect.ValueOfMessage(v.ProtoReflect())
+}
+
+func (x *_GenesisState_4_list) Truncate(n int) {
+	for i := n; i < len(*x.list); i++ {
+		(*x.list)[i] = nil
+	}
+	*x.list = (*x.list)[:n]
+}
+
+func (x *_GenesisState_4_list) NewElement() protoreflect.Value {
+	v := new(ValidatorPrice)
+	return protoreflect.ValueOfMessage(v.ProtoReflect())
+}
+
+func (x *_GenesisState_4_list) IsValid() bool {
+	return x.list != nil
+}
+
+var _ protoreflect.List = (*_GenesisState_5_list)(nil)
+
+type _GenesisState_5_list struct {
+	list *[]*OracleInfo
+}
+
+func (x *_GenesisState_5_list) Len() int {
+	if x.list == nil {
+		return 0
+	}
+	return len(*x.list)
+}
+
+func (x *_GenesisState_5_list) Get(i int) protoreflect.Value {
+	return protoreflect.ValueOfMessage((*x.list)[i].ProtoReflect())
+}
+
+func (x *_GenesisState_5_list) Set(i int, value protoreflect.Value) {
+	valueUnwrapped := value.Message()
+	concreteValue := valueUnwrapped.Interface().(*OracleInfo)
+	(*x.list)[i] = concreteValue
+}
+
+func (x *_GenesisState_5_list) Append(value protoreflect.Value) {
+	valueUnwrapped := value.Message()
+	concreteValue := valueUnwrapped.Interface().(*OracleInfo)
+	*x.list = append(*x.list, concreteValue)
+}
+
+func (x *_GenesisState_5_list) AppendMutable() protoreflect.Value {
+	v := new(OracleInfo)
+	*x.list = append(*x.list, v)
+	return protoreflect.ValueOfMessage(v.ProtoReflect())
+}
+
+func (x *_GenesisState_5_list) Truncate(n int) {
+	for i := n; i < len(*x.list); i++ {
+		(*x.list)[i] = nil
+	}
+	*x.list = (*x.list)[:n]
+}
+
+func (x *_GenesisState_5_list) NewElement() protoreflect.Value {
+	v := new(OracleInfo)
+	return protoreflect.ValueOfMessage(v.ProtoReflect())
+}
+
+func (x *_GenesisState_5_list) IsValid() bool {
+	return x.list != nil
+}
+
 var (
-	md_GenesisState        protoreflect.MessageDescriptor
-	fd_GenesisState_params protoreflect.FieldDescriptor
-	fd_GenesisState_prices protoreflect.FieldDescriptor
+	md_GenesisState                  protoreflect.MessageDescriptor
+	fd_GenesisState_params           protoreflect.FieldDescriptor
+	fd_GenesisState_prices           protoreflect.FieldDescriptor
+	fd_GenesisState_providers        protoreflect.FieldDescriptor
+	fd_GenesisState_validator_prices protoreflect.FieldDescriptor
+	fd_GenesisState_oracle_infos     protoreflect.FieldDescriptor
 )
 
 func init() {
@@ -76,6 +232,9 @@ func init() {
 	md_GenesisState = File_oracle_v1_genesis_proto.Messages().ByName("GenesisState")
 	fd_GenesisState_params = md_GenesisState.Fields().ByName("params")
 	fd_GenesisState_prices = md_GenesisState.Fields().ByName("prices")
+	fd_GenesisState_providers = md_GenesisState.Fields().ByName("providers")
+	fd_GenesisState_validator_prices = md_GenesisState.Fields().ByName("validator_prices")
+	fd_GenesisState_oracle_infos = md_GenesisState.Fields().ByName("oracle_infos")
 }
 
 var _ protoreflect.Message = (*fastReflection_GenesisState)(nil)
@@ -155,6 +314,24 @@ func (x *fastReflection_GenesisState) Range(f func(protoreflect.FieldDescriptor,
 			return
 		}
 	}
+	if len(x.Providers) != 0 {
+		value := protoreflect.ValueOfList(&_GenesisState_3_list{list: &x.Providers})
+		if !f(fd_GenesisState_providers, value) {
+			return
+		}
+	}
+	if len(x.ValidatorPrices) != 0 {
+		value := protoreflect.ValueOfList(&_GenesisState_4_list{list: &x.ValidatorPrices})
+		if !f(fd_GenesisState_validator_prices, value) {
+			return
+		}
+	}
+	if len(x.OracleInfos) != 0 {
+		value := protoreflect.ValueOfList(&_GenesisState_5_list{list: &x.OracleInfos})
+		if !f(fd_GenesisState_oracle_infos, value) {
+			return
+		}
+	}
 }
 
 // Has reports whether a field is populated.
@@ -174,6 +351,12 @@ func (x *fastReflection_GenesisState) Has(fd protoreflect.FieldDescriptor) bool 
 		return x.Params != nil
 	case "oracle.v1.GenesisState.prices":
 		return len(x.Prices) != 0
+	case "oracle.v1.GenesisState.providers":
+		return len(x.Providers) != 0
+	case "oracle.v1.GenesisState.validator_prices":
+		return len(x.ValidatorPrices) != 0
+	case "oracle.v1.GenesisState.oracle_infos":
+		return len(x.OracleInfos) != 0
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.GenesisState"))
@@ -194,6 +377,12 @@ func (x *fastReflection_GenesisState) Clear(fd protoreflect.FieldDescriptor) {
 		x.Params = nil
 	case "oracle.v1.GenesisState.prices":
 		x.Prices = nil
+	case "oracle.v1.GenesisState.providers":
+		x.Providers = nil
+	case "oracle.v1.GenesisState.validator_prices":
+		x.ValidatorPrices = nil
+	case "oracle.v1.GenesisState.oracle_infos":
+		x.OracleInfos = nil
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.GenesisState"))
@@ -218,6 +407,24 @@ func (x *fastReflection_GenesisState) Get(descriptor protoreflect.FieldDescripto
 			return protoreflect.ValueOfList(&_GenesisState_2_list{})
 		}
 		listValue := &_GenesisState_2_list{list: &x.Prices}
+		return protoreflect.ValueOfList(listValue)
+	case "oracle.v1.GenesisState.providers":
+		if len(x.Providers) == 0 {
+			return protoreflect.ValueOfList(&_GenesisState_3_list{})
+		}
+		listValue := &_GenesisState_3_list{list: &x.Providers}
+		return protoreflect.ValueOfList(listValue)
+	case "oracle.v1.GenesisState.validator_prices":
+		if len(x.ValidatorPrices) == 0 {
+			return protoreflect.ValueOfList(&_GenesisState_4_list{})
+		}
+		listValue := &_GenesisState_4_list{list: &x.ValidatorPrices}
+		return protoreflect.ValueOfList(listValue)
+	case "oracle.v1.GenesisState.oracle_infos":
+		if len(x.OracleInfos) == 0 {
+			return protoreflect.ValueOfList(&_GenesisState_5_list{})
+		}
+		listValue := &_GenesisState_5_list{list: &x.OracleInfos}
 		return protoreflect.ValueOfList(listValue)
 	default:
 		if descriptor.IsExtension() {
@@ -245,6 +452,18 @@ func (x *fastReflection_GenesisState) Set(fd protoreflect.FieldDescriptor, value
 		lv := value.List()
 		clv := lv.(*_GenesisState_2_list)
 		x.Prices = *clv.list
+	case "oracle.v1.GenesisState.providers":
+		lv := value.List()
+		clv := lv.(*_GenesisState_3_list)
+		x.Providers = *clv.list
+	case "oracle.v1.GenesisState.validator_prices":
+		lv := value.List()
+		clv := lv.(*_GenesisState_4_list)
+		x.ValidatorPrices = *clv.list
+	case "oracle.v1.GenesisState.oracle_infos":
+		lv := value.List()
+		clv := lv.(*_GenesisState_5_list)
+		x.OracleInfos = *clv.list
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.GenesisState"))
@@ -276,6 +495,24 @@ func (x *fastReflection_GenesisState) Mutable(fd protoreflect.FieldDescriptor) p
 		}
 		value := &_GenesisState_2_list{list: &x.Prices}
 		return protoreflect.ValueOfList(value)
+	case "oracle.v1.GenesisState.providers":
+		if x.Providers == nil {
+			x.Providers = []*ProviderInfo{}
+		}
+		value := &_GenesisState_3_list{list: &x.Providers}
+		return protoreflect.ValueOfList(value)
+	case "oracle.v1.GenesisState.validator_prices":
+		if x.ValidatorPrices == nil {
+			x.ValidatorPrices = []*ValidatorPrice{}
+		}
+		value := &_GenesisState_4_list{list: &x.ValidatorPrices}
+		return protoreflect.ValueOfList(value)
+	case "oracle.v1.GenesisState.oracle_infos":
+		if x.OracleInfos == nil {
+			x.OracleInfos = []*OracleInfo{}
+		}
+		value := &_GenesisState_5_list{list: &x.OracleInfos}
+		return protoreflect.ValueOfList(value)
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.GenesisState"))
@@ -295,6 +532,15 @@ func (x *fastReflection_GenesisState) NewField(fd protoreflect.FieldDescriptor) 
 	case "oracle.v1.GenesisState.prices":
 		list := []*Price{}
 		return protoreflect.ValueOfList(&_GenesisState_2_list{list: &list})
+	case "oracle.v1.GenesisState.providers":
+		list := []*ProviderInfo{}
+		return protoreflect.ValueOfList(&_GenesisState_3_list{list: &list})
+	case "oracle.v1.GenesisState.validator_prices":
+		list := []*ValidatorPrice{}
+		return protoreflect.ValueOfList(&_GenesisState_4_list{list: &list})
+	case "oracle.v1.GenesisState.oracle_infos":
+		list := []*OracleInfo{}
+		return protoreflect.ValueOfList(&_GenesisState_5_list{list: &list})
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.GenesisState"))
@@ -374,6 +620,24 @@ func (x *fastReflection_GenesisState) ProtoMethods() *protoiface.Methods {
 				n += 1 + l + runtime.Sov(uint64(l))
 			}
 		}
+		if len(x.Providers) > 0 {
+			for _, e := range x.Providers {
+				l = options.Size(e)
+				n += 1 + l + runtime.Sov(uint64(l))
+			}
+		}
+		if len(x.ValidatorPrices) > 0 {
+			for _, e := range x.ValidatorPrices {
+				l = options.Size(e)
+				n += 1 + l + runtime.Sov(uint64(l))
+			}
+		}
+		if len(x.OracleInfos) > 0 {
+			for _, e := range x.OracleInfos {
+				l = options.Size(e)
+				n += 1 + l + runtime.Sov(uint64(l))
+			}
+		}
 		if x.unknownFields != nil {
 			n += len(x.unknownFields)
 		}
@@ -402,6 +666,54 @@ func (x *fastReflection_GenesisState) ProtoMethods() *protoiface.Methods {
 		if x.unknownFields != nil {
 			i -= len(x.unknownFields)
 			copy(dAtA[i:], x.unknownFields)
+		}
+		if len(x.OracleInfos) > 0 {
+			for iNdEx := len(x.OracleInfos) - 1; iNdEx >= 0; iNdEx-- {
+				encoded, err := options.Marshal(x.OracleInfos[iNdEx])
+				if err != nil {
+					return protoiface.MarshalOutput{
+						NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+						Buf:               input.Buf,
+					}, err
+				}
+				i -= len(encoded)
+				copy(dAtA[i:], encoded)
+				i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+				i--
+				dAtA[i] = 0x2a
+			}
+		}
+		if len(x.ValidatorPrices) > 0 {
+			for iNdEx := len(x.ValidatorPrices) - 1; iNdEx >= 0; iNdEx-- {
+				encoded, err := options.Marshal(x.ValidatorPrices[iNdEx])
+				if err != nil {
+					return protoiface.MarshalOutput{
+						NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+						Buf:               input.Buf,
+					}, err
+				}
+				i -= len(encoded)
+				copy(dAtA[i:], encoded)
+				i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+				i--
+				dAtA[i] = 0x22
+			}
+		}
+		if len(x.Providers) > 0 {
+			for iNdEx := len(x.Providers) - 1; iNdEx >= 0; iNdEx-- {
+				encoded, err := options.Marshal(x.Providers[iNdEx])
+				if err != nil {
+					return protoiface.MarshalOutput{
+						NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+						Buf:               input.Buf,
+					}, err
+				}
+				i -= len(encoded)
+				copy(dAtA[i:], encoded)
+				i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+				i--
+				dAtA[i] = 0x1a
+			}
 		}
 		if len(x.Prices) > 0 {
 			for iNdEx := len(x.Prices) - 1; iNdEx >= 0; iNdEx-- {
@@ -552,6 +864,108 @@ func (x *fastReflection_GenesisState) ProtoMethods() *protoiface.Methods {
 					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
 				}
 				iNdEx = postIndex
+			case 3:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Providers", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Providers = append(x.Providers, &ProviderInfo{})
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.Providers[len(x.Providers)-1]); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
+			case 4:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field ValidatorPrices", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.ValidatorPrices = append(x.ValidatorPrices, &ValidatorPrice{})
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.ValidatorPrices[len(x.ValidatorPrices)-1]); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
+			case 5:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field OracleInfos", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.OracleInfos = append(x.OracleInfos, &OracleInfo{})
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.OracleInfos[len(x.OracleInfos)-1]); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
 			default:
 				iNdEx = preIndex
 				skippy, err := runtime.Skip(dAtA[iNdEx:])
@@ -588,12 +1002,18 @@ func (x *fastReflection_GenesisState) ProtoMethods() *protoiface.Methods {
 }
 
 var (
-	md_Params protoreflect.MessageDescriptor
+	md_Params                           protoreflect.MessageDescriptor
+	fd_Params_min_validators_for_median protoreflect.FieldDescriptor
+	fd_Params_max_price_age             protoreflect.FieldDescriptor
+	fd_Params_allow_negative_settlement protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_oracle_v1_genesis_proto_init()
 	md_Params = File_oracle_v1_genesis_proto.Messages().ByName("Params")
+	fd_Params_min_validators_for_median = md_Params.Fields().ByName("min_validators_for_median")
+	fd_Params_max_price_age = md_Params.Fields().ByName("max_price_age")
+	fd_Params_allow_negative_settlement = md_Params.Fields().ByName("allow_negative_settlement")
 }
 
 var _ protoreflect.Message = (*fastReflection_Params)(nil)
@@ -661,6 +1081,24 @@ func (x *fastReflection_Params) Interface() protoreflect.ProtoMessage {
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
 func (x *fastReflection_Params) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.MinValidatorsForMedian != uint32(0) {
+		value := protoreflect.ValueOfUint32(x.MinValidatorsForMedian)
+		if !f(fd_Params_min_validators_for_median, value) {
+			return
+		}
+	}
+	if x.MaxPriceAge != int64(0) {
+		value := protoreflect.ValueOfInt64(x.MaxPriceAge)
+		if !f(fd_Params_max_price_age, value) {
+			return
+		}
+	}
+	if x.AllowNegativeSettlement != false {
+		value := protoreflect.ValueOfBool(x.AllowNegativeSettlement)
+		if !f(fd_Params_allow_negative_settlement, value) {
+			return
+		}
+	}
 }
 
 // Has reports whether a field is populated.
@@ -676,6 +1114,12 @@ func (x *fastReflection_Params) Range(f func(protoreflect.FieldDescriptor, proto
 // a repeated field is populated if it is non-empty.
 func (x *fastReflection_Params) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
+	case "oracle.v1.Params.min_validators_for_median":
+		return x.MinValidatorsForMedian != uint32(0)
+	case "oracle.v1.Params.max_price_age":
+		return x.MaxPriceAge != int64(0)
+	case "oracle.v1.Params.allow_negative_settlement":
+		return x.AllowNegativeSettlement != false
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.Params"))
@@ -692,6 +1136,12 @@ func (x *fastReflection_Params) Has(fd protoreflect.FieldDescriptor) bool {
 // Clear is a mutating operation and unsafe for concurrent use.
 func (x *fastReflection_Params) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
+	case "oracle.v1.Params.min_validators_for_median":
+		x.MinValidatorsForMedian = uint32(0)
+	case "oracle.v1.Params.max_price_age":
+		x.MaxPriceAge = int64(0)
+	case "oracle.v1.Params.allow_negative_settlement":
+		x.AllowNegativeSettlement = false
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.Params"))
@@ -708,6 +1158,15 @@ func (x *fastReflection_Params) Clear(fd protoreflect.FieldDescriptor) {
 // of the value; to obtain a mutable reference, use Mutable.
 func (x *fastReflection_Params) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
+	case "oracle.v1.Params.min_validators_for_median":
+		value := x.MinValidatorsForMedian
+		return protoreflect.ValueOfUint32(value)
+	case "oracle.v1.Params.max_price_age":
+		value := x.MaxPriceAge
+		return protoreflect.ValueOfInt64(value)
+	case "oracle.v1.Params.allow_negative_settlement":
+		value := x.AllowNegativeSettlement
+		return protoreflect.ValueOfBool(value)
 	default:
 		if descriptor.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.Params"))
@@ -728,6 +1187,12 @@ func (x *fastReflection_Params) Get(descriptor protoreflect.FieldDescriptor) pro
 // Set is a mutating operation and unsafe for concurrent use.
 func (x *fastReflection_Params) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
+	case "oracle.v1.Params.min_validators_for_median":
+		x.MinValidatorsForMedian = uint32(value.Uint())
+	case "oracle.v1.Params.max_price_age":
+		x.MaxPriceAge = value.Int()
+	case "oracle.v1.Params.allow_negative_settlement":
+		x.AllowNegativeSettlement = value.Bool()
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.Params"))
@@ -748,6 +1213,12 @@ func (x *fastReflection_Params) Set(fd protoreflect.FieldDescriptor, value proto
 // Mutable is a mutating operation and unsafe for concurrent use.
 func (x *fastReflection_Params) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
+	case "oracle.v1.Params.min_validators_for_median":
+		panic(fmt.Errorf("field min_validators_for_median of message oracle.v1.Params is not mutable"))
+	case "oracle.v1.Params.max_price_age":
+		panic(fmt.Errorf("field max_price_age of message oracle.v1.Params is not mutable"))
+	case "oracle.v1.Params.allow_negative_settlement":
+		panic(fmt.Errorf("field allow_negative_settlement of message oracle.v1.Params is not mutable"))
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.Params"))
@@ -761,6 +1232,12 @@ func (x *fastReflection_Params) Mutable(fd protoreflect.FieldDescriptor) protore
 // For lists, maps, and messages, this returns a new, empty, mutable value.
 func (x *fastReflection_Params) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
+	case "oracle.v1.Params.min_validators_for_median":
+		return protoreflect.ValueOfUint32(uint32(0))
+	case "oracle.v1.Params.max_price_age":
+		return protoreflect.ValueOfInt64(int64(0))
+	case "oracle.v1.Params.allow_negative_settlement":
+		return protoreflect.ValueOfBool(false)
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: oracle.v1.Params"))
@@ -830,6 +1307,15 @@ func (x *fastReflection_Params) ProtoMethods() *protoiface.Methods {
 		var n int
 		var l int
 		_ = l
+		if x.MinValidatorsForMedian != 0 {
+			n += 1 + runtime.Sov(uint64(x.MinValidatorsForMedian))
+		}
+		if x.MaxPriceAge != 0 {
+			n += 1 + runtime.Sov(uint64(x.MaxPriceAge))
+		}
+		if x.AllowNegativeSettlement {
+			n += 2
+		}
 		if x.unknownFields != nil {
 			n += len(x.unknownFields)
 		}
@@ -858,6 +1344,26 @@ func (x *fastReflection_Params) ProtoMethods() *protoiface.Methods {
 		if x.unknownFields != nil {
 			i -= len(x.unknownFields)
 			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.AllowNegativeSettlement {
+			i--
+			if x.AllowNegativeSettlement {
+				dAtA[i] = 1
+			} else {
+				dAtA[i] = 0
+			}
+			i--
+			dAtA[i] = 0x18
+		}
+		if x.MaxPriceAge != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.MaxPriceAge))
+			i--
+			dAtA[i] = 0x10
+		}
+		if x.MinValidatorsForMedian != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.MinValidatorsForMedian))
+			i--
+			dAtA[i] = 0x8
 		}
 		if input.Buf != nil {
 			input.Buf = append(input.Buf, dAtA...)
@@ -908,6 +1414,64 @@ func (x *fastReflection_Params) ProtoMethods() *protoiface.Methods {
 				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: Params: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
+			case 1:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field MinValidatorsForMedian", wireType)
+				}
+				x.MinValidatorsForMedian = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.MinValidatorsForMedian |= uint32(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+			case 2:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field MaxPriceAge", wireType)
+				}
+				x.MaxPriceAge = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.MaxPriceAge |= int64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+			case 3:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field AllowNegativeSettlement", wireType)
+				}
+				var v int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					v |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				x.AllowNegativeSettlement = bool(v != 0)
 			default:
 				iNdEx = preIndex
 				skippy, err := runtime.Skip(dAtA[iNdEx:])
@@ -966,6 +1530,12 @@ type GenesisState struct {
 	Params *Params `protobuf:"bytes,1,opt,name=params,proto3" json:"params,omitempty"`
 	// List of prices to initialize the store with
 	Prices []*Price `protobuf:"bytes,2,rep,name=prices,proto3" json:"prices,omitempty"`
+	// List of registered providers
+	Providers []*ProviderInfo `protobuf:"bytes,3,rep,name=providers,proto3" json:"providers,omitempty"`
+	// List of validator price submissions
+	ValidatorPrices []*ValidatorPrice `protobuf:"bytes,4,rep,name=validator_prices,json=validatorPrices,proto3" json:"validator_prices,omitempty"`
+	// List of oracle metadata
+	OracleInfos []*OracleInfo `protobuf:"bytes,5,rep,name=oracle_infos,json=oracleInfos,proto3" json:"oracle_infos,omitempty"`
 }
 
 func (x *GenesisState) Reset() {
@@ -1002,11 +1572,39 @@ func (x *GenesisState) GetPrices() []*Price {
 	return nil
 }
 
+func (x *GenesisState) GetProviders() []*ProviderInfo {
+	if x != nil {
+		return x.Providers
+	}
+	return nil
+}
+
+func (x *GenesisState) GetValidatorPrices() []*ValidatorPrice {
+	if x != nil {
+		return x.ValidatorPrices
+	}
+	return nil
+}
+
+func (x *GenesisState) GetOracleInfos() []*OracleInfo {
+	if x != nil {
+		return x.OracleInfos
+	}
+	return nil
+}
+
 // Params defines the set of module parameters.
 type Params struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
+
+	// Minimum number of validators required for median calculation
+	MinValidatorsForMedian uint32 `protobuf:"varint,1,opt,name=min_validators_for_median,json=minValidatorsForMedian,proto3" json:"min_validators_for_median,omitempty"`
+	// Maximum age of price before considered stale (in seconds)
+	MaxPriceAge int64 `protobuf:"varint,2,opt,name=max_price_age,json=maxPriceAge,proto3" json:"max_price_age,omitempty"`
+	// Whether to allow negative one (-1) settlement prices
+	AllowNegativeSettlement bool `protobuf:"varint,3,opt,name=allow_negative_settlement,json=allowNegativeSettlement,proto3" json:"allow_negative_settlement,omitempty"`
 }
 
 func (x *Params) Reset() {
@@ -1029,6 +1627,27 @@ func (*Params) Descriptor() ([]byte, []int) {
 	return file_oracle_v1_genesis_proto_rawDescGZIP(), []int{1}
 }
 
+func (x *Params) GetMinValidatorsForMedian() uint32 {
+	if x != nil {
+		return x.MinValidatorsForMedian
+	}
+	return 0
+}
+
+func (x *Params) GetMaxPriceAge() int64 {
+	if x != nil {
+		return x.MaxPriceAge
+	}
+	return 0
+}
+
+func (x *Params) GetAllowNegativeSettlement() bool {
+	if x != nil {
+		return x.AllowNegativeSettlement
+	}
+	return false
+}
+
 var File_oracle_v1_genesis_proto protoreflect.FileDescriptor
 
 var file_oracle_v1_genesis_proto_rawDesc = []byte{
@@ -1038,26 +1657,49 @@ var file_oracle_v1_genesis_proto_rawDesc = []byte{
 	0x67, 0x6f, 0x67, 0x6f, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x11, 0x61, 0x6d, 0x69, 0x6e,
 	0x6f, 0x2f, 0x61, 0x6d, 0x69, 0x6e, 0x6f, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x15, 0x6f,
 	0x72, 0x61, 0x63, 0x6c, 0x65, 0x2f, 0x76, 0x31, 0x2f, 0x73, 0x74, 0x61, 0x74, 0x65, 0x2e, 0x70,
-	0x72, 0x6f, 0x74, 0x6f, 0x22, 0x6f, 0x0a, 0x0c, 0x47, 0x65, 0x6e, 0x65, 0x73, 0x69, 0x73, 0x53,
-	0x74, 0x61, 0x74, 0x65, 0x12, 0x2f, 0x0a, 0x06, 0x70, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x0b, 0x32, 0x11, 0x2e, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x2e, 0x76, 0x31,
-	0x2e, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x42, 0x04, 0xc8, 0xde, 0x1f, 0x00, 0x52, 0x06, 0x70,
-	0x61, 0x72, 0x61, 0x6d, 0x73, 0x12, 0x2e, 0x0a, 0x06, 0x70, 0x72, 0x69, 0x63, 0x65, 0x73, 0x18,
-	0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x10, 0x2e, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x2e, 0x76,
-	0x31, 0x2e, 0x50, 0x72, 0x69, 0x63, 0x65, 0x42, 0x04, 0xc8, 0xde, 0x1f, 0x00, 0x52, 0x06, 0x70,
-	0x72, 0x69, 0x63, 0x65, 0x73, 0x22, 0x24, 0x0a, 0x06, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x3a,
-	0x1a, 0x98, 0xa0, 0x1f, 0x00, 0xe8, 0xa0, 0x1f, 0x01, 0x8a, 0xe7, 0xb0, 0x2a, 0x0d, 0x6f, 0x72,
-	0x61, 0x63, 0x6c, 0x65, 0x2f, 0x70, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x42, 0x9a, 0x01, 0x0a, 0x0d,
-	0x63, 0x6f, 0x6d, 0x2e, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x2e, 0x76, 0x31, 0x42, 0x0c, 0x47,
-	0x65, 0x6e, 0x65, 0x73, 0x69, 0x73, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x36, 0x67,
-	0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x72, 0x6f, 0x6c, 0x6c, 0x63, 0x68,
-	0x61, 0x69, 0x6e, 0x73, 0x2f, 0x72, 0x6f, 0x6c, 0x6c, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x2f, 0x61,
-	0x70, 0x69, 0x2f, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x2f, 0x76, 0x31, 0x3b, 0x6f, 0x72, 0x61,
-	0x63, 0x6c, 0x65, 0x76, 0x31, 0xa2, 0x02, 0x03, 0x4f, 0x58, 0x58, 0xaa, 0x02, 0x09, 0x4f, 0x72,
-	0x61, 0x63, 0x6c, 0x65, 0x2e, 0x56, 0x31, 0xca, 0x02, 0x09, 0x4f, 0x72, 0x61, 0x63, 0x6c, 0x65,
-	0x5c, 0x56, 0x31, 0xe2, 0x02, 0x15, 0x4f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x5c, 0x56, 0x31, 0x5c,
-	0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x0a, 0x4f, 0x72,
-	0x61, 0x63, 0x6c, 0x65, 0x3a, 0x3a, 0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x72, 0x6f, 0x74, 0x6f, 0x22, 0xb8, 0x02, 0x0a, 0x0c, 0x47, 0x65, 0x6e, 0x65, 0x73, 0x69, 0x73,
+	0x53, 0x74, 0x61, 0x74, 0x65, 0x12, 0x2f, 0x0a, 0x06, 0x70, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x11, 0x2e, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x2e, 0x76,
+	0x31, 0x2e, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x42, 0x04, 0xc8, 0xde, 0x1f, 0x00, 0x52, 0x06,
+	0x70, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x12, 0x2e, 0x0a, 0x06, 0x70, 0x72, 0x69, 0x63, 0x65, 0x73,
+	0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x10, 0x2e, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x2e,
+	0x76, 0x31, 0x2e, 0x50, 0x72, 0x69, 0x63, 0x65, 0x42, 0x04, 0xc8, 0xde, 0x1f, 0x00, 0x52, 0x06,
+	0x70, 0x72, 0x69, 0x63, 0x65, 0x73, 0x12, 0x3b, 0x0a, 0x09, 0x70, 0x72, 0x6f, 0x76, 0x69, 0x64,
+	0x65, 0x72, 0x73, 0x18, 0x03, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x17, 0x2e, 0x6f, 0x72, 0x61, 0x63,
+	0x6c, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x50, 0x72, 0x6f, 0x76, 0x69, 0x64, 0x65, 0x72, 0x49, 0x6e,
+	0x66, 0x6f, 0x42, 0x04, 0xc8, 0xde, 0x1f, 0x00, 0x52, 0x09, 0x70, 0x72, 0x6f, 0x76, 0x69, 0x64,
+	0x65, 0x72, 0x73, 0x12, 0x4a, 0x0a, 0x10, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72,
+	0x5f, 0x70, 0x72, 0x69, 0x63, 0x65, 0x73, 0x18, 0x04, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x19, 0x2e,
+	0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61,
+	0x74, 0x6f, 0x72, 0x50, 0x72, 0x69, 0x63, 0x65, 0x42, 0x04, 0xc8, 0xde, 0x1f, 0x00, 0x52, 0x0f,
+	0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x50, 0x72, 0x69, 0x63, 0x65, 0x73, 0x12,
+	0x3e, 0x0a, 0x0c, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x5f, 0x69, 0x6e, 0x66, 0x6f, 0x73, 0x18,
+	0x05, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x15, 0x2e, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x2e, 0x76,
+	0x31, 0x2e, 0x4f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x49, 0x6e, 0x66, 0x6f, 0x42, 0x04, 0xc8, 0xde,
+	0x1f, 0x00, 0x52, 0x0b, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x49, 0x6e, 0x66, 0x6f, 0x73, 0x22,
+	0xbf, 0x01, 0x0a, 0x06, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x12, 0x39, 0x0a, 0x19, 0x6d, 0x69,
+	0x6e, 0x5f, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x73, 0x5f, 0x66, 0x6f, 0x72,
+	0x5f, 0x6d, 0x65, 0x64, 0x69, 0x61, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x16, 0x6d,
+	0x69, 0x6e, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x73, 0x46, 0x6f, 0x72, 0x4d,
+	0x65, 0x64, 0x69, 0x61, 0x6e, 0x12, 0x22, 0x0a, 0x0d, 0x6d, 0x61, 0x78, 0x5f, 0x70, 0x72, 0x69,
+	0x63, 0x65, 0x5f, 0x61, 0x67, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0b, 0x6d, 0x61,
+	0x78, 0x50, 0x72, 0x69, 0x63, 0x65, 0x41, 0x67, 0x65, 0x12, 0x3a, 0x0a, 0x19, 0x61, 0x6c, 0x6c,
+	0x6f, 0x77, 0x5f, 0x6e, 0x65, 0x67, 0x61, 0x74, 0x69, 0x76, 0x65, 0x5f, 0x73, 0x65, 0x74, 0x74,
+	0x6c, 0x65, 0x6d, 0x65, 0x6e, 0x74, 0x18, 0x03, 0x20, 0x01, 0x28, 0x08, 0x52, 0x17, 0x61, 0x6c,
+	0x6c, 0x6f, 0x77, 0x4e, 0x65, 0x67, 0x61, 0x74, 0x69, 0x76, 0x65, 0x53, 0x65, 0x74, 0x74, 0x6c,
+	0x65, 0x6d, 0x65, 0x6e, 0x74, 0x3a, 0x1a, 0x98, 0xa0, 0x1f, 0x00, 0xe8, 0xa0, 0x1f, 0x01, 0x8a,
+	0xe7, 0xb0, 0x2a, 0x0d, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x2f, 0x70, 0x61, 0x72, 0x61, 0x6d,
+	0x73, 0x42, 0x9a, 0x01, 0x0a, 0x0d, 0x63, 0x6f, 0x6d, 0x2e, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65,
+	0x2e, 0x76, 0x31, 0x42, 0x0c, 0x47, 0x65, 0x6e, 0x65, 0x73, 0x69, 0x73, 0x50, 0x72, 0x6f, 0x74,
+	0x6f, 0x50, 0x01, 0x5a, 0x36, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f,
+	0x72, 0x6f, 0x6c, 0x6c, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x73, 0x2f, 0x72, 0x6f, 0x6c, 0x6c, 0x63,
+	0x68, 0x61, 0x69, 0x6e, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x2f,
+	0x76, 0x31, 0x3b, 0x6f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x76, 0x31, 0xa2, 0x02, 0x03, 0x4f, 0x58,
+	0x58, 0xaa, 0x02, 0x09, 0x4f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x2e, 0x56, 0x31, 0xca, 0x02, 0x09,
+	0x4f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x5c, 0x56, 0x31, 0xe2, 0x02, 0x15, 0x4f, 0x72, 0x61, 0x63,
+	0x6c, 0x65, 0x5c, 0x56, 0x31, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74,
+	0x61, 0xea, 0x02, 0x0a, 0x4f, 0x72, 0x61, 0x63, 0x6c, 0x65, 0x3a, 0x3a, 0x56, 0x31, 0x62, 0x06,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -1074,18 +1716,24 @@ func file_oracle_v1_genesis_proto_rawDescGZIP() []byte {
 
 var file_oracle_v1_genesis_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_oracle_v1_genesis_proto_goTypes = []interface{}{
-	(*GenesisState)(nil), // 0: oracle.v1.GenesisState
-	(*Params)(nil),       // 1: oracle.v1.Params
-	(*Price)(nil),        // 2: oracle.v1.Price
+	(*GenesisState)(nil),   // 0: oracle.v1.GenesisState
+	(*Params)(nil),         // 1: oracle.v1.Params
+	(*Price)(nil),          // 2: oracle.v1.Price
+	(*ProviderInfo)(nil),   // 3: oracle.v1.ProviderInfo
+	(*ValidatorPrice)(nil), // 4: oracle.v1.ValidatorPrice
+	(*OracleInfo)(nil),     // 5: oracle.v1.OracleInfo
 }
 var file_oracle_v1_genesis_proto_depIdxs = []int32{
 	1, // 0: oracle.v1.GenesisState.params:type_name -> oracle.v1.Params
 	2, // 1: oracle.v1.GenesisState.prices:type_name -> oracle.v1.Price
-	2, // [2:2] is the sub-list for method output_type
-	2, // [2:2] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	3, // 2: oracle.v1.GenesisState.providers:type_name -> oracle.v1.ProviderInfo
+	4, // 3: oracle.v1.GenesisState.validator_prices:type_name -> oracle.v1.ValidatorPrice
+	5, // 4: oracle.v1.GenesisState.oracle_infos:type_name -> oracle.v1.OracleInfo
+	5, // [5:5] is the sub-list for method output_type
+	5, // [5:5] is the sub-list for method input_type
+	5, // [5:5] is the sub-list for extension type_name
+	5, // [5:5] is the sub-list for extension extendee
+	0, // [0:5] is the sub-list for field type_name
 }
 
 func init() { file_oracle_v1_genesis_proto_init() }

@@ -19,8 +19,11 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	Msg_UpdateParams_FullMethodName = "/oracle.v1.Msg/UpdateParams"
-	Msg_PostPrice_FullMethodName    = "/oracle.v1.Msg/PostPrice"
+	Msg_UpdateParams_FullMethodName        = "/oracle.v1.Msg/UpdateParams"
+	Msg_PostPrice_FullMethodName           = "/oracle.v1.Msg/PostPrice"
+	Msg_RelayProviderPrices_FullMethodName = "/oracle.v1.Msg/RelayProviderPrices"
+	Msg_RegisterProvider_FullMethodName    = "/oracle.v1.Msg/RegisterProvider"
+	Msg_UpdateProvider_FullMethodName      = "/oracle.v1.Msg/UpdateProvider"
 )
 
 // MsgClient is the client API for Msg service.
@@ -31,6 +34,12 @@ type MsgClient interface {
 	UpdateParams(ctx context.Context, in *MsgUpdateParams, opts ...grpc.CallOption) (*MsgUpdateParamsResponse, error)
 	// PostPrice allows a validator to post a price for an asset
 	PostPrice(ctx context.Context, in *MsgPostPrice, opts ...grpc.CallOption) (*MsgPostPriceResponse, error)
+	// RelayProviderPrices allows authorized relayers to submit prices from external providers
+	RelayProviderPrices(ctx context.Context, in *MsgRelayProviderPrices, opts ...grpc.CallOption) (*MsgRelayProviderPricesResponse, error)
+	// RegisterProvider allows authority to register a new price provider
+	RegisterProvider(ctx context.Context, in *MsgRegisterProvider, opts ...grpc.CallOption) (*MsgRegisterProviderResponse, error)
+	// UpdateProvider allows authority to update provider information
+	UpdateProvider(ctx context.Context, in *MsgUpdateProvider, opts ...grpc.CallOption) (*MsgUpdateProviderResponse, error)
 }
 
 type msgClient struct {
@@ -59,6 +68,33 @@ func (c *msgClient) PostPrice(ctx context.Context, in *MsgPostPrice, opts ...grp
 	return out, nil
 }
 
+func (c *msgClient) RelayProviderPrices(ctx context.Context, in *MsgRelayProviderPrices, opts ...grpc.CallOption) (*MsgRelayProviderPricesResponse, error) {
+	out := new(MsgRelayProviderPricesResponse)
+	err := c.cc.Invoke(ctx, Msg_RelayProviderPrices_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) RegisterProvider(ctx context.Context, in *MsgRegisterProvider, opts ...grpc.CallOption) (*MsgRegisterProviderResponse, error) {
+	out := new(MsgRegisterProviderResponse)
+	err := c.cc.Invoke(ctx, Msg_RegisterProvider_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) UpdateProvider(ctx context.Context, in *MsgUpdateProvider, opts ...grpc.CallOption) (*MsgUpdateProviderResponse, error) {
+	out := new(MsgUpdateProviderResponse)
+	err := c.cc.Invoke(ctx, Msg_UpdateProvider_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // MsgServer is the server API for Msg service.
 // All implementations must embed UnimplementedMsgServer
 // for forward compatibility
@@ -67,6 +103,12 @@ type MsgServer interface {
 	UpdateParams(context.Context, *MsgUpdateParams) (*MsgUpdateParamsResponse, error)
 	// PostPrice allows a validator to post a price for an asset
 	PostPrice(context.Context, *MsgPostPrice) (*MsgPostPriceResponse, error)
+	// RelayProviderPrices allows authorized relayers to submit prices from external providers
+	RelayProviderPrices(context.Context, *MsgRelayProviderPrices) (*MsgRelayProviderPricesResponse, error)
+	// RegisterProvider allows authority to register a new price provider
+	RegisterProvider(context.Context, *MsgRegisterProvider) (*MsgRegisterProviderResponse, error)
+	// UpdateProvider allows authority to update provider information
+	UpdateProvider(context.Context, *MsgUpdateProvider) (*MsgUpdateProviderResponse, error)
 	mustEmbedUnimplementedMsgServer()
 }
 
@@ -79,6 +121,15 @@ func (UnimplementedMsgServer) UpdateParams(context.Context, *MsgUpdateParams) (*
 }
 func (UnimplementedMsgServer) PostPrice(context.Context, *MsgPostPrice) (*MsgPostPriceResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PostPrice not implemented")
+}
+func (UnimplementedMsgServer) RelayProviderPrices(context.Context, *MsgRelayProviderPrices) (*MsgRelayProviderPricesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RelayProviderPrices not implemented")
+}
+func (UnimplementedMsgServer) RegisterProvider(context.Context, *MsgRegisterProvider) (*MsgRegisterProviderResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RegisterProvider not implemented")
+}
+func (UnimplementedMsgServer) UpdateProvider(context.Context, *MsgUpdateProvider) (*MsgUpdateProviderResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateProvider not implemented")
 }
 func (UnimplementedMsgServer) mustEmbedUnimplementedMsgServer() {}
 
@@ -129,6 +180,60 @@ func _Msg_PostPrice_Handler(srv interface{}, ctx context.Context, dec func(inter
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Msg_RelayProviderPrices_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgRelayProviderPrices)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).RelayProviderPrices(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Msg_RelayProviderPrices_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).RelayProviderPrices(ctx, req.(*MsgRelayProviderPrices))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_RegisterProvider_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgRegisterProvider)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).RegisterProvider(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Msg_RegisterProvider_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).RegisterProvider(ctx, req.(*MsgRegisterProvider))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_UpdateProvider_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgUpdateProvider)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).UpdateProvider(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Msg_UpdateProvider_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).UpdateProvider(ctx, req.(*MsgUpdateProvider))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Msg_ServiceDesc is the grpc.ServiceDesc for Msg service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -143,6 +248,18 @@ var Msg_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "PostPrice",
 			Handler:    _Msg_PostPrice_Handler,
+		},
+		{
+			MethodName: "RelayProviderPrices",
+			Handler:    _Msg_RelayProviderPrices_Handler,
+		},
+		{
+			MethodName: "RegisterProvider",
+			Handler:    _Msg_RegisterProvider_Handler,
+		},
+		{
+			MethodName: "UpdateProvider",
+			Handler:    _Msg_UpdateProvider_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

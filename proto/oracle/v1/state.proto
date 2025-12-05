@@ -15,3 +15,50 @@ message Price {
   string source = 3;     // Address of the oracle/validator
   uint64 timestamp = 4;  // Block timestamp when updated
 }
+
+// ProviderInfo stores metadata and authorization for a price provider (e.g. CoinMarketCap)
+message ProviderInfo {
+  // Provider name (unique, e.g. "coinmarketcap")
+  string provider = 1;
+
+  // Authorized relayer addresses who can submit this provider's data
+  repeated string relayers = 2 [(cosmos_proto.scalar) = "cosmos.AddressString"];
+
+  // Whether this provider is currently active
+  bool is_active = 3;
+
+  // Human-readable description
+  string description = 4;
+}
+
+// ValidatorPrice stores a validator's submitted price for an asset
+message ValidatorPrice {
+  // Validator operator address
+  string validator = 1 [(cosmos_proto.scalar) = "cosmos.ValidatorAddressString"];
+
+  string asset = 2;
+
+  string price = 3 [
+    (cosmos_proto.scalar) = "cosmos.Dec"
+  ];
+
+  uint64 timestamp = 4;
+}
+
+// OracleInfo stores metadata about an oracle symbol (e.g. quote/base info)
+message OracleInfo {
+  // Symbol identifier (e.g. "BTC", "ETH")
+  string symbol = 1;
+
+  // Base asset (optional)
+  string base = 2;
+
+  // Quote asset (e.g. "USD")
+  string quote = 3;
+
+  // Number of decimals used by this market (for client display)
+  uint32 decimals = 4;
+
+  // Description or notes
+  string description = 5;
+}
