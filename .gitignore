@@ -10,3 +10,6 @@ build/
 *.o
 *.so
 
+# Explorer build outputs
+rollchain-explorer/node_modules/
+rollchain-explorer/.next/
