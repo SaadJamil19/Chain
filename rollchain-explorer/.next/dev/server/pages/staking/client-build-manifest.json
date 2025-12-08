@@ -1,0 +1,5 @@
+{
+  "/staking": [
+    "static/chunks/pages/staking.js"
+  ]
+}

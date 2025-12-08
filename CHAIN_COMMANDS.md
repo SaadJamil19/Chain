@@ -293,3 +293,17 @@ If you want, I can:
 - Run a few of these commands against the running local node and capture outputs, or
 - Add a short section with common automation scripts (bash snippets) to run multiple test transactions in sequence.
 
+rm -rf ~/.cache/go-build   # already done once
+
+export KEY_NAME=acc0
+export KEYRING_HOME=$HOME/.rollchain
+export NODE_RPC=http://localhost:26657
+export CHAIN_ID=localchain_9000-1
+export GAS_PRICES="0.025uroll"
+export GAS_LIMIT=300000          # adjust if needed
+export CMC_API_KEY=your_cmc_key
+
+go run ./scripts/cmc_relayer
+
+
+rolld start --pruning=nothing --minimum-gas-prices=0uroll --rpc.laddr=tcp://0.0.0.0:26657 --home /home/rollchain/.rollchain --json-rpc.api=eth,txpool,personal,net,debug,web3 --chain-id=localchain_9000-1

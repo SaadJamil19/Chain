@@ -1,0 +1,3 @@
+{
+  "/tx/[hash]": "pages/tx/[hash].js"
+}
