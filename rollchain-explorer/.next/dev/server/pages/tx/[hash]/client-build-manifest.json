@@ -1,5 +1,0 @@
-{
-  "/tx/[hash]": [
-    "static/chunks/pages/tx/[hash].js"
-  ]
-}

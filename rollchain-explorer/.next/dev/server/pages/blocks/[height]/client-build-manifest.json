@@ -1,5 +1,0 @@
-{
-  "/blocks/[height]": [
-    "static/chunks/pages/blocks/[height].js"
-  ]
-}
