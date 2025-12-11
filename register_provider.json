@@ -1,0 +1,17 @@
+{
+  "title": "Register CoinMarketCap Provider",
+  "summary": "Authorize acc0 to relay CoinMarketCap prices",
+  "metadata": "register coinmarketcap provider",
+  "messages": [
+    {
+      "@type": "/oracle.v1.MsgRegisterProvider",
+      "authority": "roll10d07y265gmmuvt4z0w9aw880jnsr700j5y2waw",
+      "provider": "coinmarketcap",
+      "relayers": [
+        "roll1re47ma37hgjkr2ps7cqcrpr5kkdn9klrtmmqak"
+      ],
+      "description": "CMC feed"
+    }
+  ],
+  "deposit": "10000000uroll"
+}

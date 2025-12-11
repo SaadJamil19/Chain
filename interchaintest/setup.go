@@ -25,8 +25,8 @@ import (
 )
 
 var (
-	VotingPeriod     = "15s"
-	MaxDepositPeriod = "10s"
+	VotingPeriod     = "300s"
+	MaxDepositPeriod = "300s"
 
 	Denom = "uroll"
 	Name  = "rollchain"

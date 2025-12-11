@@ -70,7 +70,7 @@ func loadConfig() Config {
 		ChainID:     getenv("CHAIN_ID", "localchain_9000-1"),
 		KeyringHome: getenv("KEYRING_HOME", os.ExpandEnv("$HOME/.rollchain")),
 		KeyName:     getenv("KEY_NAME", "acc0"),
-		GasPrices:   getenv("GAS_PRICES", "0.025utoken"),
+		GasPrices:   getenv("GAS_PRICES", "0.025uroll"),
 		FeeGranter:  os.Getenv("FEE_GRANTER"),
 		GasLimit:    getenvUint64("GAS_LIMIT", 300000),
 	}
