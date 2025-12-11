@@ -27,8 +27,10 @@ export ROLLD=${ROLLD:-/home/asim/go/bin/rolld}
 export ROLL_HOST=http://localhost:26657
 export ROLL_HOME=$HOME/.rollchain
 export ROLL_KR=--keyring-backend=test
-alias r="$ROLLD --node=$ROLL_HOST --home=$ROLL_HOME $ROLL_KR"
+export ROLL_CHAIN=${ROLL_CHAIN:-localchain_9000-1}
+alias r="$ROLLD --node=$ROLL_HOST --home=$ROLL_HOME --chain-id=$ROLL_CHAIN $ROLL_KR"
 ```
+roll1p2m3jly029ms03z52qun3xtyyrnhyj5k9568nv
 
 After this you can use the short form with the `r` alias (or `rolld` if you configured defaults).
 
@@ -36,7 +38,8 @@ Examples (both styles):
 
 # Bank send — Simple
 r tx bank send $(r keys show acc1 -a) 5000000ux --from acc0 -y
-
+correct:
+rolld tx bank send acc0 roll1p2m3jly029ms03z52qun3xtyyrnhyj5k9568nv 5000000uroll --chain-id localchain_9000-1 --keyring-backend test -y
 # Bank send — Explicit
 /home/asim/go/bin/rolld tx bank send $(/home/asim/go/bin/rolld keys show acc1 -a --keyring-backend=test --home=$HOME/.rollchain) \
   5000000ux --from acc0 --keyring-backend=test --home=$HOME/.rollchain --chain-id=localchain_9000-1 -y
@@ -51,6 +54,22 @@ r tx oracle post-price BTC 45000.50 --from acc0 -y
 
 ---
 
+## Wallet & Key Management
+
+Use these quick references for everyday key tasks:
+
+```bash
+r keys list
+r keys show acc0
+r keys add newuser
+r config chain-id $ROLL_CHAIN
+r config keyring-backend test
+```
+
+All module examples below assume the default `acc0` and validator keys from the local testnet setup.
+
+---
+
 ## 1. Bank Module (tokens & balances)
 
 Send tokens:
@@ -59,7 +78,6 @@ rolld tx bank send $(rolld keys show acc0 -a --keyring-backend=test --home=$HOME
   $(rolld keys show acc1 -a --keyring-backend=test --home=$HOME/.rollchain) 5000000ux --from acc0 \
   --keyring-backend=test --home=$HOME/.rollchain --chain-id=localchain_9000-1 -y
 ```
-
 Check balance:
 ```bash
 rolld query bank balances $(rolld keys show acc0 -a --keyring-backend=test --home=$HOME/.rollchain) --node=http://localhost:26657
@@ -200,9 +218,26 @@ Query module params:
 rolld query oracle params --node=http://localhost:26657
 ```
 
-Query price for an asset (per-asset query):
+Query price for an asset (per-asset query); repeat per symbol if you need a whole basket:
 ```bash
 rolld query oracle get-price BTC --node=http://localhost:26657
+rolld query oracle get-price ETH --node=http://localhost:26657
+rolld query oracle get-price USDT --node=http://localhost:26657
+```
+
+List or inspect providers and prices:
+```bash
+rolld query oracle providers --node=http://localhost:26657
+rolld query oracle provider coinmarketcap --node=http://localhost:26657
+rolld query oracle provider-prices coinmarketcap --node=http://localhost:26657
+rolld query oracle provider-price coinmarketcap BTC --node=http://localhost:26657
+```
+
+Relay provider prices from scripts or your tooling (CoinMarketCap relayer example):
+```bash
+go run ./scripts/cmc_relayer
+rolld tx oracle relay-provider-prices --from acc0 --keyring-backend=test \
+  --home=$HOME/.rollchain --chain-id=localchain_9000-1 --node=http://localhost:26657 -y
 ```
 
 Post a price (tx now accepts positional args: `asset price`):
@@ -212,12 +247,47 @@ rolld tx oracle post-price BTC 45000.50 --from acc0 --keyring-backend=test --hom
 ```
 
 Notes:
-- If your `PostPrice` message requires the creator field explicitly (older scaffolds), use: `rolld tx oracle post-price <creator> <asset> <price> ...` but current autocli registers `post-price [asset] [price]`.
-- Use `--gas=auto --gas-adjustment=1.5` for safer estimations on testnet when needed.
+- `rolld query oracle provider-prices` requires the provider name, otherwise the CLI rejects the command.
+- Passing the provider before the symbol matters on `provider-price` (it will complain `price not found for provider ETH symbol BTC` if you swap args).
+- For older scaffolds that expect `PostPrice` to include a creator, use `rolld tx oracle post-price <creator> <asset> <price> ...`, but the current autocli definition uses `post-price [asset] [price]`.
+- Use `--gas=auto --gas-adjustment=1.5` for safer estimations on testnet when you expect higher gas usage.
 
 ---
 
-## 8. Advanced Debugging & Queries
+## 8. Auction Module (custom x/auction)
+
+Query module params:
+```bash
+rolld query auction params --node=http://localhost:26657
+```
+
+Update params (authority account only):
+```bash
+rolld tx auction update-params true --from acc0 --keyring-backend=test \
+  --home=$HOME/.rollchain --chain-id=localchain_9000-1 --node=http://localhost:26657 -y
+```
+
+---
+
+## 9. Nameservice Module (custom x/nameservice)
+
+Query module params:
+```bash
+rolld query nameservice params --node=http://localhost:26657
+```
+
+Update params (authority account only):
+```bash
+rolld tx nameservice update-params true --from acc0 --keyring-backend=test \
+  --home=$HOME/.rollchain --chain-id=localchain_9000-1 --node=http://localhost:26657 -y
+```
+
+> NOTE: Nameservice currently exposes params + param updates only.  
+> Expand CLI handlers once name registration transactions are implemented.
+
+---
+
+## 10. Advanced Debugging & Queries
 
 Check a block by height:
 ```bash
@@ -242,7 +312,7 @@ tail -f $HOME/.rollchain/logs/rolld.log
 
 ---
 
-## 9. Build, Proto & Dev Helpers
+## 11. Build, Proto & Dev Helpers
 
 Regenerate protobufs:
 ```bash
@@ -279,7 +349,7 @@ sudo rm -rf "$(go env GOMODCACHE)"
 
 ---
 
-## 10. Quick Tips
+## 12. Quick Tips
 - Use `--keyring-backend=test` for non-interactive local testing.  
 - Use `-y` to auto-confirm transactions in scripts.  
 - For CLI help on any module command: `rolld tx oracle --help` or `rolld query oracle --help`.  
@@ -287,9 +357,33 @@ sudo rm -rf "$(go env GOMODCACHE)"
 
 ---
 
-File created: `/home/asim/Chain/CHAIN_COMMANDS.md`
+## 13. Automation & Helper Scripts
 
-If you want, I can:
-- Run a few of these commands against the running local node and capture outputs, or
-- Add a short section with common automation scripts (bash snippets) to run multiple test transactions in sequence.
+Optional cleanup if build cache gets corrupted:
+```bash
+rm -rf ~/.cache/go-build
+```
 
+Helpful environment variables for relayers or scripting:
+```bash
+export KEY_NAME=acc0
+export KEYRING_HOME=$HOME/.rollchain
+export NODE_RPC=http://localhost:26657
+export CHAIN_ID=localchain_9000-1
+export GAS_PRICES="0.025uroll"
+export GAS_LIMIT=300000
+export CMC_API_KEY=your_cmc_key
+```
+
+Run the CoinMarketCap relayer against those env vars:
+```bash
+go run ./scripts/cmc_relayer
+```
+
+Example node start command (adjust ports/flags as needed):
+```bash
+rolld start --pruning=nothing --minimum-gas-prices=0uroll \
+  --rpc.laddr=tcp://0.0.0.0:26657 --home $HOME/.rollchain \
+  --json-rpc.api=eth,txpool,personal,net,debug,web3 \
+  --chain-id=localchain_9000-1
+```
